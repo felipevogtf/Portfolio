@@ -1,0 +1,80 @@
+@import './variables.css';
+@import './animations.css';
+
+@font-face {
+    font-family: CascadiaCode;
+    src: url("./../fonts/CascadiaCode.ttf");
+}
+
+html,
+body {
+    margin: 0;
+    font-size: 13px;
+}
+
+body {
+    font-family: CascadiaCode;
+    background-color: var(--background-color);
+    color: var(--base-text-color);
+}
+
+a:link {
+    text-decoration: none;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:active {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+
+.text-h1 {
+    font-size: clamp(40px, 8vw, 80px);
+}
+
+.text-h2 {
+    font-size: clamp(20px, 5vw, 40px);
+}
+
+.text-h3 {
+    font-size: clamp(16px, 4vw, 20px);
+}
+
+.text-link {
+    color: var(--primary-text-color-dark);
+    position: relative;
+}
+
+.text-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: var(--primary-text-color-dark);
+    opacity: 0;
+    transition: opacity 300ms, transform 300ms;
+}
+
+.text-link::after {
+    opacity: 1;
+    transform: scale(0);
+    transform-origin: center;
+}
+
+.text-link:hover::after,
+.text-link:focus::after {
+    transform: scale(1);
+}
+
+.text-p {
+    line-height: 1.5;
+}

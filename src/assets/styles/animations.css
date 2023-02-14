@@ -1,0 +1,64 @@
+.fade-in {
+    opacity: 0;
+}
+
+.fade-in-animation {
+    animation: fade-in ease 1s 1 forwards;
+}
+
+.typed {
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 10px solid;
+    width: 0;
+}
+
+.typed-animation {
+    animation: fade-in ease 1s 300ms 1 forwards,
+    typing 1s steps(60, end) 300ms forwards, blinking 1s infinite;
+}
+
+@media screen and (min-width: 992px) {
+    .typed {
+        border-right: 20px solid;
+    }
+
+    .typed-animation {
+        animation: fade-in ease 1s 300ms 1 forwards,
+      typing 2s steps(60, end) 300ms forwards, blinking 1s infinite;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blinking {
+    0% {
+        border-right-color: transparent;
+    }
+
+    50% {
+        border-right-color: var(--primary-text-color);
+    }
+
+    100% {
+        border-right-color: transparent;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
