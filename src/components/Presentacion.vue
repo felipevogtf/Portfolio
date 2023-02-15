@@ -1,5 +1,18 @@
 <script lang="ts">
+interface InicioData {
+  titulo: string;
+  subtitulo: string;
+  descripcion: string;
+}
+
 export default {
+  name: "PresentacionComponent",
+  props: {
+    data: {
+      type: Object as () => InicioData,
+      required: true,
+    },
+  },
   mounted() {
     const observer = new IntersectionObserver((entries) => {
       // Loop over the entries
@@ -20,19 +33,9 @@ export default {
 
 <template>
   <div class="presentacion">
-    <div class="titulo text-h1 fade-in">Felipe Vogt</div>
-    <div class="sub-titulo text-h2 typed">Desarrollador Full-Stack</div>
-    <div class="descripcion text-p fade-in">
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-      Lorem Ipsum has been the industry's standard dummy text ever since the
-      1500s, when an unknown printer took a galley of type and scrambled it to
-      make a type specimen book. It has survived not only five centuries, but
-      also the leap into electronic typesetting, remaining essentially
-      unchanged. It was popularised in the 1960s with the release of Letraset
-      sheets containing Lorem Ipsum passages, and more recently with desktop
-      publishing software like Aldus PageMaker including versions of Lorem
-      Ipsum.
-    </div>
+    <div class="titulo text-h1 fade-in">{{ data.titulo }}</div>
+    <div class="sub-titulo text-h2 typed">{{ data.subtitulo }}</div>
+    <div class="descripcion text-p fade-in">{{ data.descripcion }}</div>
   </div>
 </template>
 

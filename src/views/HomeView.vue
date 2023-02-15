@@ -2,12 +2,15 @@
 import Presentacion from "../components/Presentacion.vue";
 import SobreMi from "./../components/SobreMi.vue";
 import Experiencia from "./../components/Experiencia.vue";
+import Proyectos from "./../components/Proyectos.vue";
+import json from "./../assets/data/data.json";
 
 export default {
   components: {
     Presentacion,
     SobreMi,
-    Experiencia, 
+    Experiencia,
+    Proyectos,
   },
   mounted() {
     const observer = new IntersectionObserver((entries) => {
@@ -28,22 +31,28 @@ export default {
       }
     });
   },
+
+  data() {
+    return {
+      data: json,
+    };
+  },
 };
 </script>
 
 <template>
   <main>
     <section class="main-background">
-      <Presentacion />
+      <Presentacion :data="data.inicio" />
     </section>
     <section>
-      <SobreMi />
+      <SobreMi :data="data.sobre_mi" />
     </section>
     <section>
-      <Experiencia />
+      <Experiencia :data="data.experiencia" />
     </section>
     <section>
-      <Experiencia />
+      <Proyectos />
     </section>
   </main>
 </template>

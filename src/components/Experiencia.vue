@@ -1,17 +1,39 @@
 <script lang="ts">
+interface ExperienciaData {
+  titulo: string;
+  experiencias: ExperienciaLaboral[];
+}
+
+interface ExperienciaLaboral {
+  empresa: string;
+  empresa_abrev: string;
+  empresa_link: string;
+  cargo: string;
+  fecha: string;
+  funciones: string[];
+}
+
 export default {
+  name: "ExperienciaComponent",
+  props: {
+    data: {
+      type: Object as () => ExperienciaData,
+      required: true,
+    },
+  },
   data() {
     return {
-      experiencia: ["bcn", "impact", "nueva gestion"],
-      selected: "",
+      selected: [this.data.experiencias[0]],
+      navs: [""],
     };
   },
   created() {
-    this.selected = this.experiencia[0];
+    this.navs = this.data.experiencias.map((obj) => obj.empresa_abrev);
   },
   methods: {
     cambiarExperiencia(num: number) {
-      this.selected = this.experiencia[num];
+      this.selected.splice(0, this.selected.length);
+      this.selected.push(this.data.experiencias[num]);
     },
   },
 };
@@ -19,120 +41,52 @@ export default {
 
 <template>
   <div class="experiencia">
-    <div class="titulo text-h2 fade-in">Experiencia</div>
+    <div class="titulo text-h2 fade-in">{{ data.titulo }}</div>
 
     <div class="contenido text-p fade-in">
       <div class="botonera">
         <button
-          v-on:click="cambiarExperiencia(0)"
-          :class="selected === experiencia[0] ? 'active' : ''"
+          v-for="(item, index) in navs"
+          :key="item"
+          v-on:click="cambiarExperiencia(index)"
+          :class="
+            JSON.stringify(selected[0]) ===
+            JSON.stringify(data.experiencias[index])
+              ? 'active'
+              : ''
+          "
         >
-          BCN School
-        </button>
-        <button
-          v-on:click="cambiarExperiencia(1)"
-          :class="selected === experiencia[1] ? 'active' : ''"
-        >
-          Impact
-        </button>
-        <button
-          v-on:click="cambiarExperiencia(2)"
-          :class="selected === experiencia[2] ? 'active' : ''"
-        >
-          Nueva Gestión
+          {{ item }}
         </button>
       </div>
 
       <div class="contenido-box">
-        <Transition name="slide-up">
-          <div class="contenido-detalle" v-if="selected === 'bcn'">
-            <div class="text-h3">
-              Programador Full-Stack en
-              <a
-                class="text-link"
-                href="https://bcnschool.com/"
-                rel="noopener noreferrer"
-                target="_blank"
-                >BCN School</a
-              >
-            </div>
-            <div>Mayo 2022 - Noviembre 2022</div>
-            <div class="contenido-descripcion">
-              <ul>
-                <li>
-                  Desarrollo del Front-end mediante Angular para plataforma
-                  BCN360, que permite la personalización y administración de un
-                  campus virtual.
-                </li>
-                <li>
-                  Desarrollo de la API mediante Laravel para la plataforma
-                  BCN360, que se encarga de interactuar con la base de datos y
-                  los distintos servicios del campus virtual.
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="contenido-detalle" v-else-if="selected === 'impact'">
-            <div class="text-h3">
-              Programador Full-Stack en
-              <a
-                class="text-link"
-                href="https://www.impact.cl/es/"
-                rel="noopener noreferrer"
-                target="_blank"
-                >Impact Chile</a
-              >
-            </div>
-            <div>Agosto 2021 - Mayo 2022</div>
-            <div class="contenido-descripcion">
-              <ul>
-                <li>
-                  Desarrollo y mantención de la aplicación móvil MiSQM realizada
-                  en Ionic, que ofrece distintas funcionalidades para facilitar
-                  la forma de trabajar de los empleados
-                </li>
-                <li>
-                  Desarrollo y mantención de la API para la aplicación MiSQM,
-                  mediante la librería Codeigniter.
-                </li>
-                <li>
-                  Mantención de la pagina Wordpress de MiSQM y desarrollo de
-                  nuevos plugins para el sitio.
-                </li>
-              </ul>
-            </div>
-          </div>
+        <TransitionGroup name="slide-up">
           <div
             class="contenido-detalle"
-            v-else-if="selected === 'nueva gestion'"
+            v-for="item in selected"
+            v-bind:key="item.empresa_abrev"
           >
             <div class="text-h3">
-              Programador Front-End en
+              {{ item.cargo }}
               <a
                 class="text-link"
-                href="https://www.nuevagestion.cl/"
+                v-bind:href="item.empresa_link"
                 rel="noopener noreferrer"
                 target="_blank"
-                >Nueva Gestión Software</a
+                >{{ item.empresa }}</a
               >
             </div>
-            <div>Noviembre 2020 - Marzo 2021</div>
+            <div>{{ item.fecha }}</div>
             <div class="contenido-descripcion">
               <ul>
-                <li>
-                  Desarrollo de minijuegos interactivos para la aplicación móvil
-                  AcamyKids, los cuales están enfocados en facilitar el
-                  aprendizaje de los estudiantes del segundo ciclo de enseñanza
-                  básica.
-                </li>
-                <li>
-                  Mantención de la API de AcamyKids mediante el framework
-                  Laravel.
+                <li v-for="funcion in item.funciones" v-bind:key="funcion">
+                  {{ funcion }}
                 </li>
               </ul>
             </div>
           </div>
-        </Transition>
+        </TransitionGroup>
       </div>
     </div>
   </div>
@@ -149,14 +103,7 @@ export default {
     width: 100%;
   }
 
-  .contenido-box {
-    position: relative;
-    min-height: 300px;
-  }
-
   .contenido-detalle {
-    position: absolute;
-
     .contenido-descripcion {
       margin-top: 10px;
 
@@ -188,9 +135,7 @@ export default {
       border-width: 0px 0px 2px 0px;
       font-size: inherit;
       font-family: inherit;
-      transition: background 200ms;
-      transition: color 200ms;
-      transition: border-color 200ms;
+      transition: background 200ms, color 200ms, border-color 300ms;
     }
 
     button:hover {
@@ -240,6 +185,7 @@ export default {
 
 .slide-up-leave-to {
   opacity: 0;
+  height: 0;
   transform: translateY(-30px);
 }
 </style>

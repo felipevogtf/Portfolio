@@ -1,0 +1,51 @@
+{
+  "titulo_pagina": "Felipe Vogt",
+  "inicio": {
+    "titulo": "Felipe Vogt",
+    "subtitulo": "Desarrollador Full-Stack",
+    "descripcion": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  },
+  "sobre_mi": {
+    "titulo": "Sobre Mi",
+    "contenido": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum."
+  },
+  "experiencia": {
+    "titulo": "Experiencia",
+    "experiencias": [
+      {
+        "empresa": "BCN School",
+        "empresa_abrev": "BCN School",
+        "empresa_link": "https://bcnschool.com/",
+        "cargo": "Programador Full-Stack en",
+        "fecha": "Mayo 2022 - Noviembre 2022",
+        "funciones": [
+          "Desarrollo del Front-end mediante Angular para plataforma BCN360, que permite la personalización y administración de un campus virtual.",
+          "Desarrollo de la API mediante Laravel para la plataforma BCN360, que se encarga de interactuar con la base de datos y los distintos servicios del campus virtual."
+        ]
+      },
+      {
+        "empresa": "Impact Chile",
+        "empresa_abrev": "Impact",
+        "empresa_link": "https://www.impact.cl/es/",
+        "cargo": "Programador Full-Stack en",
+        "fecha": "Agosto 2021 - Mayo 2022",
+        "funciones": [
+          "Desarrollo y mantención de la aplicación móvil MiSQM realizada en Ionic, que ofrece distintas funcionalidades para facilitar la forma de trabajar de los empleados",
+          "Desarrollo y mantención de la API para la aplicación MiSQM, mediante la librería Codeigniter.",
+          "Mantención de la pagina Wordpress de MiSQM y desarrollo de nuevos plugins para el sitio."
+        ]
+      },
+      {
+        "empresa": "Nueva Gestión Software",
+        "empresa_abrev": "Nueva Gestión",
+        "empresa_link": "https://www.nuevagestion.cl/",
+        "cargo": "Programador Front-End en",
+        "fecha": "Noviembre 2020 - Marzo 2021",
+        "funciones": [
+          "Desarrollo de minijuegos interactivos para la aplicación móvil AcamyKids, los cuales están enfocados en facilitar el aprendizaje de los estudiantes del segundo ciclo de enseñanza básica.",
+          "Mantención de la API de AcamyKids mediante el framework Laravel."
+        ]
+      }
+    ]
+  }
+}
