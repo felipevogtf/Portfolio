@@ -13,9 +13,7 @@ export default {
   },
   async created() {
 
-    const baseUrl = import.meta.env.BASE_URL;
-
-    console.log(baseUrl);
+    const baseUrl = import.meta.env.VITE_URL;
 
     const response = await fetch(`${baseUrl}data/data.json`);
     const file = await response.json();
