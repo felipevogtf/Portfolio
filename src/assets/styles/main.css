@@ -52,6 +52,10 @@ a:hover {
     position: relative;
 }
 
+.text-accent {
+    color: var(--primary-text-color-dark);
+}
+
 .text-link::after {
     content: '';
     position: absolute;
@@ -77,4 +81,23 @@ a:hover {
 
 .text-p {
     line-height: 1.5;
+}
+
+.chips {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    column-gap: 20px;
+    flex-wrap: wrap;
+    color: rgba(255, 255, 255, 0.678);
+}
+
+.icon-button {
+    transition: color 200ms;
+}
+
+.icon-button:hover {
+    cursor: pointer;
+    color: var(--primary-text-color-dark);
 }

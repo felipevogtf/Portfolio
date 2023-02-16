@@ -3,6 +3,7 @@ import Presentacion from "../components/Presentacion.vue";
 import SobreMi from "./../components/SobreMi.vue";
 import Experiencia from "./../components/Experiencia.vue";
 import Proyectos from "./../components/Proyectos.vue";
+import OtrosProyectos from "./../components/OtrosProyectos.vue";
 import json from "./../assets/data/data.json";
 
 export default {
@@ -11,6 +12,7 @@ export default {
     SobreMi,
     Experiencia,
     Proyectos,
+    OtrosProyectos
   },
   mounted() {
     const observer = new IntersectionObserver((entries) => {
@@ -52,7 +54,10 @@ export default {
       <Experiencia :data="data.experiencia" />
     </section>
     <section>
-      <Proyectos />
+      <Proyectos :data="data.proyectos"/>
+    </section>
+    <section>
+      <OtrosProyectos :data="data.otros_proyectos" />
     </section>
   </main>
 </template>
@@ -79,8 +84,7 @@ section > div {
 
 @media screen and (min-width: 992px) {
   section > div {
-    width: 50%;
-    padding-left: 150px;
+    width: 60%;
   }
 }
 </style>
