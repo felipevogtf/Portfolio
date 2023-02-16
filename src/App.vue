@@ -15,6 +15,8 @@ export default {
 
     const baseUrl = import.meta.env.BASE_URL;
 
+    console.log(baseUrl);
+
     const response = await fetch(`${baseUrl}data/data.json`);
     const file = await response.json();
 
