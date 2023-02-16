@@ -1,19 +1,29 @@
 <script lang="ts">
 import { RouterView } from "vue-router";
-import json from "./assets/data/data.json";
+import { pageData } from "./store/data";
 
 export default {
   components: {
     RouterView,
   },
-  created() {
-    document.title = json.titulo_pagina;
+  data() {
+    return {
+      data: null as any,
+    };
+  },
+  async created() {
+    const response = await fetch("/data/data.json");
+    const file = await response.json();
+
+    pageData.setData(file);
+
+    document.title = pageData.data.titulo_pagina;
   },
 };
 </script>
 
 <template>
-  <RouterView />
+  <RouterView :model="data" />
 </template>
 
 <style scoped></style>

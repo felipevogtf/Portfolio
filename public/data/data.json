@@ -53,7 +53,7 @@
     "proyectos": [
       {
         "titulo": "Buscaminas",
-        "imagen": "/src/assets/imgs/buscaminas.png",
+        "imagen": "/imgs/buscaminas.png",
         "descripcion": "Aplicacion web basado en el popular juego Buscaminas, cuyo objetivo es despejar el campo de minas sin detonar ninguna.",
         "tecnologias": [
           "Angular",
@@ -64,7 +64,7 @@
       },
       {
         "titulo": "Trivia Pokémon",
-        "imagen": "/src/assets/imgs/trivia-pokemon.png",
+        "imagen": "/imgs/trivia-pokemon.png",
         "descripcion": "Juego de trivia relacionado al mundo Pokémon, cuenta con un sistema de puntuación y de rankings.",
         "tecnologias": [
           "Vue",

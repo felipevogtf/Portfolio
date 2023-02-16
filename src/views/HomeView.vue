@@ -4,7 +4,7 @@ import SobreMi from "./../components/SobreMi.vue";
 import Experiencia from "./../components/Experiencia.vue";
 import Proyectos from "./../components/Proyectos.vue";
 import OtrosProyectos from "./../components/OtrosProyectos.vue";
-import json from "./../assets/data/data.json";
+import { pageData } from "./../store/data";
 
 export default {
   components: {
@@ -12,7 +12,15 @@ export default {
     SobreMi,
     Experiencia,
     Proyectos,
-    OtrosProyectos
+    OtrosProyectos,
+  },
+  data() {
+    return {
+      data: null as any,
+    };
+  },
+  created() {
+    this.data = pageData.data;
   },
   mounted() {
     const observer = new IntersectionObserver((entries) => {
@@ -33,12 +41,6 @@ export default {
       }
     });
   },
-
-  data() {
-    return {
-      data: json,
-    };
-  },
 };
 </script>
 
@@ -54,7 +56,7 @@ export default {
       <Experiencia :data="data.experiencia" />
     </section>
     <section>
-      <Proyectos :data="data.proyectos"/>
+      <Proyectos :data="data.proyectos" />
     </section>
     <section>
       <OtrosProyectos :data="data.otros_proyectos" />
