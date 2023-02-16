@@ -12,7 +12,10 @@ export default {
     };
   },
   async created() {
-    const response = await fetch("/data/data.json");
+
+    const baseUrl = import.meta.env.BASE_URL;
+
+    const response = await fetch(`${baseUrl}data/data.json`);
     const file = await response.json();
 
     pageData.setData(file);
