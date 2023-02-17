@@ -6,6 +6,7 @@
     src: url("./../fonts/CascadiaCode.ttf");
 }
 
+/* configs */
 html,
 body {
     margin: 0;
@@ -33,6 +34,8 @@ a:active {
 a:hover {
     text-decoration: none;
 }
+
+/* */
 
 
 .text-h1 {
@@ -99,5 +102,33 @@ a:hover {
 
 .icon-button:hover {
     cursor: pointer;
+    color: var(--primary-text-color-dark);
+}
+
+.outline-button {
+    background: none;
+    color: var(--primary-text-color-dark);
+    padding: 15px 40px;
+    border: solid 2px;
+    font-size: inherit;
+    border-radius: 5px;
+    transition: background 200ms;
+}
+
+.outline-button:hover {
+    cursor: pointer;
+    background: rgba(0, 227, 162, 0.1);
+}
+
+.titulo {
+    margin-bottom: 20px;
+}
+
+.text-link-secondary{
+    color: rgba(33, 34, 36, 0.6);
+    transition: color 200ms;
+}
+
+.text-link-secondary:hover{
     color: var(--primary-text-color-dark);
 }

@@ -1,6 +1,6 @@
 <script lang="ts">
-import type { Proyecto } from "@/models/Proyecto";
-import type { ProyectosData } from "@/models/ProyectosData";
+import type { Proyecto } from "@/models/proyecto.model";
+import type { ProyectosData } from "@/models/proyectos-data.model";
 
 export default {
   name: "ProyectosComponent",
@@ -79,14 +79,12 @@ export default {
 
 <style lang="scss">
 .proyectos {
-  margin-top: 100px;
 
   .contenido {
     display: flex;
     flex-direction: column;
     width: 100%;
     align-items: center;
-    margin-top: 20px;
     row-gap: 30px;
   }
 

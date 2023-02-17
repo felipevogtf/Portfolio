@@ -15,7 +15,33 @@
 
 .typed-animation {
     animation: fade-in ease 1s 300ms 1 forwards,
-    typing 1s steps(60, end) 300ms forwards, blinking 1s infinite;
+        typing 1s steps(60, end) 300ms forwards, blinking 1s infinite;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+    transition: all 0.25s ease-out;
+}
+
+.slide-up-enter-from {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.slide-up-leave-to {
+    opacity: 0;
+    height: 0;
+    transform: translateY(-30px);
+}
+
+.v-enter-active,
+.v-leave-active {
+    transition: opacity 0.3s ease;
+}
+
+.v-enter-from,
+.v-leave-to {
+    opacity: 0;
 }
 
 @media screen and (min-width: 992px) {
@@ -25,7 +51,7 @@
 
     .typed-animation {
         animation: fade-in ease 1s 300ms 1 forwards,
-      typing 2s steps(60, end) 300ms forwards, blinking 1s infinite;
+            typing 2s steps(60, end) 300ms forwards, blinking 1s infinite;
     }
 }
 

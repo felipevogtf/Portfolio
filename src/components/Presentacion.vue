@@ -1,9 +1,5 @@
 <script lang="ts">
-interface InicioData {
-  titulo: string;
-  subtitulo: string;
-  descripcion: string;
-}
+import type { InicioData } from "@/models/inicio-data.model";
 
 export default {
   name: "PresentacionComponent",
@@ -15,11 +11,8 @@ export default {
   },
   mounted() {
     const observer = new IntersectionObserver((entries) => {
-      // Loop over the entries
       entries.forEach((entry) => {
-        // If the element is visible
         if (entry.isIntersecting) {
-          // Add the animation class
           entry.target.classList.add("typed-animation");
           return;
         }
@@ -33,9 +26,13 @@ export default {
 
 <template>
   <div class="presentacion">
-    <div class="titulo text-h1 fade-in">{{ data.titulo }}</div>
-    <div class="sub-titulo text-h2 typed">{{ data.subtitulo }}</div>
-    <div class="descripcion text-p fade-in">{{ data.descripcion }}</div>
+    <div class="presentacion-titulo text-h1 fade-in">{{ data.titulo }}</div>
+    <div class="presentacion-sub-titulo text-h2 typed">
+      {{ data.subtitulo }}
+    </div>
+    <div class="presentacion-descripcion text-p fade-in">
+      {{ data.descripcion }}
+    </div>
   </div>
 </template>
 
@@ -45,16 +42,25 @@ export default {
   min-height: 100vh;
   overflow-wrap: break-word;
 
-  .sub-titulo {
+  .presentacion-sub-titulo {
     color: var(--primary-text-color);
     margin-top: 5px;
     max-width: min-content;
     animation-delay: 200ms;
   }
 
-  .descripcion {
+  .presentacion-descripcion {
     margin-top: 20px;
     animation-delay: 300ms;
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .presentacion {
+    .presentacion-descripcion {
+      width: 50%;
+    }
   }
 }
 </style>

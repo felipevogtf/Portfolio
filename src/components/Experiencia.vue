@@ -94,10 +94,8 @@ export default {
 
 <style lang="scss">
 .experiencia {
-  margin-top: 100px;
   .contenido {
     animation-delay: 200ms;
-    margin-top: 20px;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -171,21 +169,5 @@ export default {
       padding-left: 20px;
     }
   }
-}
-
-.slide-up-enter-active,
-.slide-up-leave-active {
-  transition: all 0.25s ease-out;
-}
-
-.slide-up-enter-from {
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.slide-up-leave-to {
-  opacity: 0;
-  height: 0;
-  transform: translateY(-30px);
 }
 </style>

@@ -4,6 +4,8 @@ import SobreMi from "./../components/SobreMi.vue";
 import Experiencia from "./../components/Experiencia.vue";
 import Proyectos from "./../components/Proyectos.vue";
 import OtrosProyectos from "./../components/OtrosProyectos.vue";
+import Contacto from "./../components/Contacto.vue";
+import Footer from "./../components/Footer.vue";
 import { pageData } from "./../store/data";
 
 export default {
@@ -13,6 +15,8 @@ export default {
     Experiencia,
     Proyectos,
     OtrosProyectos,
+    Contacto,
+    Footer,
   },
   data() {
     return {
@@ -50,16 +54,22 @@ export default {
       <Presentacion :data="data.inicio" />
     </section>
     <section>
-      <SobreMi :data="data.sobre_mi" />
+      <SobreMi :data="data.sobre_mi" class="section-margin" />
     </section>
     <section>
-      <Experiencia :data="data.experiencia" />
+      <Experiencia :data="data.experiencia" class="section-margin" />
     </section>
     <section>
-      <Proyectos :data="data.proyectos" />
+      <Proyectos :data="data.proyectos" class="section-margin" />
     </section>
     <section>
-      <OtrosProyectos :data="data.otros_proyectos" />
+      <OtrosProyectos :data="data.otros_proyectos" class="section-margin" />
+    </section>
+    <section>
+      <Contacto :data="data.contacto" class="section-margin" />
+    </section>
+    <section>
+      <Footer />
     </section>
   </main>
 </template>
@@ -84,6 +94,10 @@ section > div {
   width: 90%;
 }
 
+.section-margin {
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
 @media screen and (min-width: 992px) {
   section > div {
     width: 60%;
