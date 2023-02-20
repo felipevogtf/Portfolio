@@ -6,6 +6,7 @@ import Proyectos from "./../components/Proyectos.vue";
 import OtrosProyectos from "./../components/OtrosProyectos.vue";
 import Contacto from "./../components/Contacto.vue";
 import Footer from "./../components/Footer.vue";
+import RedesSociales from "./../components/RedesSociales.vue";
 import { pageData } from "./../store/data";
 
 export default {
@@ -17,14 +18,20 @@ export default {
     OtrosProyectos,
     Contacto,
     Footer,
+    RedesSociales,
   },
   data() {
     return {
       data: null as any,
+      styleObject: {},
     };
   },
   created() {
     this.data = pageData.data;
+    this.styleObject = {
+      "--background": `url(${this.data.inicio.background})`,
+      // etc...
+    };
   },
   mounted() {
     const observer = new IntersectionObserver((entries) => {
@@ -50,17 +57,30 @@ export default {
 
 <template>
   <main>
-    <section class="main-background">
+    <div class="nav">
+      <div class="nav-logo fade-in">FV</div>
+      <div class="nav-link fade-in">
+        <a href="#sobre-mi">Sobre mi</a>
+        <a href="#experiencia">Experiencia</a>
+        <a href="#proyectos">Proyectos</a>
+        <a href="#footer">Contacto</a>
+      </div>
+    </div>
+    <section class="main-background" :style="styleObject">
       <Presentacion :data="data.inicio" />
     </section>
     <section>
-      <SobreMi :data="data.sobre_mi" class="section-margin" />
+      <SobreMi id="sobre-mi" :data="data.sobre_mi" class="section-margin" />
     </section>
     <section>
-      <Experiencia :data="data.experiencia" class="section-margin" />
+      <Experiencia
+        id="experiencia"
+        :data="data.experiencia"
+        class="section-margin"
+      />
     </section>
     <section>
-      <Proyectos :data="data.proyectos" class="section-margin" />
+      <Proyectos id="proyectos" :data="data.proyectos" class="section-margin" />
     </section>
     <section>
       <OtrosProyectos :data="data.otros_proyectos" class="section-margin" />
@@ -68,16 +88,55 @@ export default {
     <section>
       <Contacto :data="data.contacto" class="section-margin" />
     </section>
-    <section>
+    <section id="footer">
       <Footer />
     </section>
+
+    <RedesSociales :data="data.redes"></RedesSociales>
   </main>
 </template>
 
 <style lang="scss">
 .main-background {
   background-color: var(--base-color);
+  background-blend-mode: multiply;
 }
+
+.nav {
+  background-color: var(--base-color);
+  color: var(--base-dark-text-color);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px 30px;
+
+  .nav-link {
+    display: flex;
+    flex-direction: row;
+    column-gap: 20px;
+    a{
+      color: var(--base-dark-text-color);
+    }
+
+    a:hover{
+      color: var(--primary-text-color-dark);
+    }
+  }
+}
+
+// .main-background::before {
+//   content: "";
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100%;
+//   height: 100%;
+//   background: var(--background);
+//   background-repeat: no-repeat;
+//   background-position: right;
+//   background-size: contain;
+//   opacity: 0.3;
+// }
 
 section {
   display: flex;

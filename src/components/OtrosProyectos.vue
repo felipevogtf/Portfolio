@@ -18,17 +18,15 @@ export default {
     this.proyectos = this.data.proyectos.slice(0, 6);
   },
   methods: {
-    abrir(url: string): void {
-      if (url) {
-        window.open(url, "_blank");
-      }
-    },
-    abrirProyecto(proyecto: Proyecto): void {
+    getLink(proyecto: Proyecto): string {
+      let link: string = "";
       if (proyecto.demo_link) {
-        this.abrir(proyecto.demo_link);
+        link = proyecto.demo_link;
       } else if (proyecto.git_link) {
-        this.abrir(proyecto.git_link);
+        link = proyecto.git_link;
       }
+
+      return link;
     },
     mostrarMas() {
       const min = this.proyectos.length;
@@ -50,10 +48,12 @@ export default {
 
     <div class="contenido fade-in">
       <TransitionGroup name="slide-up">
-        <div
+        <a
           class="card"
           v-for="(item, index) in proyectos"
-          v-on:click="abrirProyecto(item)"
+          :href="getLink(item)"
+          rel="noopener noreferrer"
+          target="_blank"
           v-bind:key="index"
         >
           <div class="card-header">
@@ -62,17 +62,21 @@ export default {
             </div>
 
             <div class="card-opciones">
-              <div
+              <a
                 class="icon-button text-h3"
                 v-if="item.git_link"
-                v-on:click="abrir(item.git_link)"
+                :href="item.git_link"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 <i class="fa-brands fa-github"></i>
-              </div>
+              </a>
               <div
                 class="icon-button text-h3"
                 v-if="item.demo_link"
-                v-on:click="abrir(item.demo_link)"
+                :href="item.demo_link"
+                rel="noopener noreferrer"
+                target="_blank"
               >
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
               </div>
@@ -85,7 +89,7 @@ export default {
               {{ tecnologia }}
             </div>
           </div>
-        </div>
+        </a>
       </TransitionGroup>
     </div>
 
@@ -101,7 +105,6 @@ export default {
 
 <style lang="scss">
 .otros-proyectos {
-
   .contenido {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -109,6 +112,8 @@ export default {
     width: 100%;
 
     .card {
+      display: flex;
+      flex-direction: column;
       .card-header {
         display: flex;
         flex-direction: row;
@@ -127,11 +132,15 @@ export default {
         padding-bottom: 20px;
       }
 
+      .card-descripcion {
+        padding-bottom: 20px;
+      }
+
       padding: 20px;
       background: rgba(0, 0, 0, 0.7);
       border-radius: 5px;
       box-shadow: 5px 5px 10px rgb(0 0 0 / 15%);
-      color: white;
+      color: var(--base-dark-text-color);
       transition: transform 200ms, box-shadow 200ms;
     }
 

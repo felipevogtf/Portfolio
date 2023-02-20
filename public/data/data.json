@@ -3,10 +3,13 @@
   "inicio": {
     "titulo": "Felipe Vogt",
     "subtitulo": "Desarrollador Full-Stack",
-    "descripcion": "Soy un ingeniero de software especializado en construir aplicaciones altamente escalables y con un alto rendimiento."
+    "descripcion": "Soy un ingeniero de software especializado en construir aplicaciones altamente escalables y con un alto rendimiento.",
+    "background": "./imgs/background.png"
   },
   "sobre_mi": {
     "titulo": "Sobre Mi",
+    "imagen": "./imgs/profile.jpg",
+    "perfil_link": "https://www.linkedin.com/in/felipe-vogt-625329237/",
     "parrafos": [
       "¡Hola! Mi nombre es Felipe y soy un programador full stack con experiencia en el desarrollo de aplicaciones web integrales y dinámicas. Mis habilidades me permiten trabajar tanto en el lado del cliente como en el lado del servidor, lo que me permite ofrecer soluciones completas y personalizadas para satisfacer las necesidades específicas de mis clientes.",
       "Una de mis fortalezas es mi compromiso con el aprendizaje continuo y la actualización constante de mis habilidades y conocimientos. Me mantengo al día con las últimas tendencias y tecnologías en el campo de la programación para garantizar que las soluciones que ofrezco sean siempre innovadoras y actualizadas."
@@ -56,7 +59,6 @@
         "nombre": "Sass",
         "icono": "./icons/sass.svg"
       }
-
     ]
   },
   "experiencia": {
@@ -106,14 +108,14 @@
         "imagen": "./imgs/buscaminas.png",
         "descripcion": "Aplicación web inspirada en el popular juego Buscaminas, cuyo objetivo es despejar el campo de minas sin detonar ninguna de ellas.",
         "tecnologias": ["Angular", "Typescript"],
-        "git_link": "https://github.com/felipevogtf/buscaminas",
-        "demo_link": "https://felipevogtf.github.io/buscaminas/"
+        "git_link": "https://github.com/felipevogtf/Buscaminas",
+        "demo_link": "https://felipevogtf.github.io/Buscaminas/"
       },
       {
         "titulo": "Trivia Pokémon",
         "imagen": "./imgs/trivia-pokemon.png",
         "descripcion": "Juego de trivia relacionado al mundo Pokémon, cuenta con un sistema de puntuación y de rankings.",
-        "tecnologias": ["Vue", "Javascript", "Firebase"],
+        "tecnologias": ["Vue", "Vuetify", "Javascript", "Firebase"],
         "git_link": "https://github.com/felipevogtf/Trivia-Pokemon",
         "demo_link": "https://cuanto-sabes-de-pokemon.web.app/login"
       }
@@ -127,12 +129,12 @@
         "titulo": "Portafolio",
         "descripcion": "Plantilla de portafolio que presenta de manera detallada experiencia, habilidades y proyectos realizados.",
         "tecnologias": ["Vue", "Typescript", "SCSS"],
-        "git_link": "https://github.com/felipevogtf/portfolio",
+        "git_link": "https://github.com/felipevogtf/Portfolio",
         "demo_link": ""
       },
       {
         "titulo": "Wololo Stats",
-        "descripcion": "Wololo Stats es una aplicación detallada y completa para Age of Empires 2, que ofrece información sobre las unidades, estructuras, civilizaciones y tecnologías del juego, así como una función de comparación para determinar la mejor opción en diferentes situaciones de juego.",
+        "descripcion": "Wololo Stats es una aplicación de Age of Empires 2 que brinda información sobre unidades, estructuras, civilizaciones y tecnologías, y permite comparar la mejor opción en diversas situaciones de juego.",
         "tecnologias": ["Ionic", "Angular"],
         "git_link": "https://github.com/felipevogtf/Wololo-Stats",
         "demo_link": ""
@@ -144,5 +146,19 @@
     "descripcion": "Actualmente estoy en búsqueda de nuevas oportunidades en el área de desarrollo de software. Si estás buscando un profesional experimentado con habilidades en programación, no dudes en contactarme.",
     "boton_contacto": "Contactame",
     "email": "felipevogt.f@gmail.com"
+  },
+  "redes": {
+    "redes": [
+      {
+        "nombre": "Github",
+        "url": "https://github.com/felipevogtf",
+        "fontawesome_icon": "fa-brands fa-github"
+      },
+      {
+        "nombre": "Linkedin",
+        "url": "https://www.linkedin.com/in/felipe-vogt-625329237/",
+        "fontawesome_icon": "fa-brands fa-linkedin-in"
+      }
+    ]
   }
 }

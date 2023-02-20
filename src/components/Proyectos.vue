@@ -11,17 +11,15 @@ export default {
     },
   },
   methods: {
-    abrir(url: string): void {
-      if (url) {
-        window.open(url, "_blank");
-      }
-    },
-    abrirProyecto(proyecto: Proyecto): void {
+    getLink(proyecto: Proyecto): string {
+      let link: string = "";
       if (proyecto.demo_link) {
-        this.abrir(proyecto.demo_link);
+        link = proyecto.demo_link;
       } else if (proyecto.git_link) {
-        this.abrir(proyecto.git_link);
+        link = proyecto.git_link;
       }
+
+      return link;
     },
   },
 };
@@ -37,13 +35,17 @@ export default {
         :class="index % 2 === 0 ? 'position-left' : 'position-right'"
         v-for="(item, index) in data.proyectos"
       >
-        <div class="img-wrapper" v-on:click="abrirProyecto(item)">
+        <a
+          class="img-wrapper"
+          :href="getLink(item)"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <img :src="item.imagen" alt="" />
-        </div>
+        </a>
         <div
           class="proyecto-card"
           :class="index % 2 === 0 ? 'position-left' : 'position-right'"
-          :style="{ backgroundImage: `url(${item.imagen})` }"
         >
           <div class="text-h3 text-accent">{{ item.titulo }}</div>
           <div class="proyecto-descripcion">
@@ -56,20 +58,24 @@ export default {
           </div>
 
           <div class="botonera">
-            <div
+            <a
               class="icon-button text-h3"
               v-if="item.git_link"
-              v-on:click="abrir(item.git_link)"
+              :href="item.git_link"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <i class="fa-brands fa-github"></i>
-            </div>
-            <div
+            </a>
+            <a
               class="icon-button text-h3"
               v-if="item.demo_link"
-              v-on:click="abrir(item.demo_link)"
+              :href="item.demo_link"
+              rel="noopener noreferrer"
+              target="_blank"
             >
               <i class="fa-solid fa-arrow-up-right-from-square"></i>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -79,7 +85,6 @@ export default {
 
 <style lang="scss">
 .proyectos {
-
   .contenido {
     display: flex;
     flex-direction: column;
@@ -96,7 +101,7 @@ export default {
     .proyecto-card {
       display: flex;
       flex-direction: column;
-      color: white;
+      color: var(--base-dark-text-color);
       padding: 50px;
 
       border-radius: 5px;

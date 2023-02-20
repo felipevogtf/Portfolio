@@ -10,7 +10,12 @@
 html,
 body {
     margin: 0;
-    font-size: 13px;
+    font-size: large;
+    color: var(--base-text-color);
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -43,11 +48,11 @@ a:hover {
 }
 
 .text-h2 {
-    font-size: clamp(20px, 5vw, 40px);
+    font-size: xxx-large;
 }
 
 .text-h3 {
-    font-size: clamp(16px, 4vw, 20px);
+    font-size: xx-large;
 }
 
 .text-link {
@@ -84,10 +89,11 @@ a:hover {
 
 .text-p {
     line-height: 1.5;
+    font-size: large;
 }
 
 .chips {
-    margin-top: 20px;
+    margin-top: auto;
     display: flex;
     flex-direction: row;
     justify-content: left;
@@ -96,7 +102,27 @@ a:hover {
     color: rgba(255, 255, 255, 0.678);
 }
 
+.chips-icon {
+    display: flex;
+    flex-direction: row;
+    background: rgba(0, 227, 162, 0.9);
+    color: white;
+    border-radius: 5px;
+    padding: 5px 10px;
+    align-items: center;
+}
+
+.chips-icon-svg {
+    width: 25px;
+    filter: brightness(0) invert(1);
+}
+
+.chips-icon-name {
+    padding-left: 5px;
+}
+
 .icon-button {
+    color: white;
     transition: color 200ms;
 }
 
@@ -124,11 +150,11 @@ a:hover {
     margin-bottom: 20px;
 }
 
-.text-link-secondary{
+.text-link-secondary {
     color: rgba(33, 34, 36, 0.6);
     transition: color 200ms;
 }
 
-.text-link-secondary:hover{
+.text-link-secondary:hover {
     color: var(--primary-text-color-dark);
 }

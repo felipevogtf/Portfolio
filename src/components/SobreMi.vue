@@ -22,13 +22,23 @@ export default {
         </div>
 
         <div class="contenido-tecnologias">
-          <div class="tecnologia" v-for="(item, index) in data.tecnologias">
-            <img :src="item.icono" alt="" />
-            <div class="tecnologia-nombre">{{ item.nombre }}</div>
+          <div class="chips-icon" v-for="(item, index) in data.tecnologias">
+            <img class="chips-icon-svg" :src="item.icono" alt="" />
+            <div class="chips-icon-name">{{ item.nombre }}</div>
           </div>
         </div>
       </div>
-      <div class="contenido-imagen">{ACA LA IMAGEN</div>
+
+      <div class="contenido-imagen">
+        <a
+          class="img-wrapper"
+          :href="data.perfil_link"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <img :src="data.imagen" alt="" />
+        </a>
+      </div>
     </div>
   </div>
 </template>
@@ -40,9 +50,10 @@ export default {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    row-gap: 20px;
   }
 
-  .parrafo{
+  .parrafo {
     margin-bottom: 20px;
   }
   .contenido-tecnologias {
@@ -50,26 +61,43 @@ export default {
     align-items: center;
     flex-direction: row;
     justify-content: center;
-    column-gap: 10px;
-    row-gap: 10px;
+    gap: 20px;
     flex-wrap: wrap;
   }
 
-  .tecnologia {
+  .contenido-imagen {
     display: flex;
+    justify-content: center;
     flex-direction: row;
-    background: rgba(0, 227, 162, 0.9);
-    color: white;
-    border-radius: 5px;
-    padding: 5px 10px;
-    align-items: center;
-    img {
-      width: 30px;
-      filter: brightness(0) invert(1);
+
+    .img-wrapper {
+      height: fit-content;
+
+      background: #279d7b;
+      overflow: hidden;
+      border-radius: 50%;
+      transition: background 400ms;
+      box-shadow: 5px 5px 10px rgb(0 0 0 / 15%);
+
+      img {
+        width: 100%;
+        height: 300px;
+        width: 300px;
+        object-fit: cover;
+        opacity: 0.7;
+        transform: scale(1.1);
+        filter: grayscale(30%);
+        transition: filter 400ms, opacity 400ms;
+      }
     }
 
-    .tecnologia-nombre {
-      padding-left: 5px;
+    .img-wrapper:hover {
+      cursor: pointer;
+      background: none;
+      img {
+        opacity: 1;
+        filter: grayscale(10%);
+      }
     }
   }
 }
@@ -79,11 +107,11 @@ export default {
     .contenido {
       flex-direction: row;
       .contenido-descripcion {
-        width: 60%;
+        width: 50%;
       }
 
       .contenido-imagen {
-        width: 40%;
+        width: calc(50% - 20px);
       }
     }
   }
