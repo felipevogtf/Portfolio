@@ -85,7 +85,11 @@ export default {
           <div class="card-titulo text-h3 text-accent">{{ item.titulo }}</div>
           <div class="card-descripcion text-p">{{ item.descripcion }}</div>
           <div class="chips">
-            <div class="chip" v-for="(tecnologia, index) in item.tecnologias">
+            <div
+              class="chip"
+              v-for="(tecnologia, index) in item.tecnologias"
+              :key="index"
+            >
               {{ tecnologia }}
             </div>
           </div>

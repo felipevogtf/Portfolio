@@ -12,7 +12,6 @@ export default {
     };
   },
   async created() {
-
     const baseUrl = import.meta.env.VITE_URL;
 
     const response = await fetch(`${baseUrl}data/data.json`);

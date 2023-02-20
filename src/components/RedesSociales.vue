@@ -20,6 +20,7 @@ export default {
       target="_blank"
       :href="item.url"
       v-for="(item, index) in data.redes"
+      :key="index"
     >
       <i :class="item.fontawesome_icon"></i>
     </a>
@@ -75,6 +76,6 @@ export default {
     margin: 0px auto;
     margin-bottom: -20px;
     background-color: var(--base-dark-text-color);
-}
+  }
 }
 </style>

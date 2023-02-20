@@ -1,11 +1,11 @@
 <script lang="ts">
 export default {
-  name: "Footer",
+  name: "CopyrigthComponent",
 };
 </script>
 
 <template>
-  <div class="footer">
+  <div class="copyrigth">
     <div class="fade-in">
       <a
         rel="noopener noreferrer"
@@ -19,7 +19,7 @@ export default {
 </template>
 
 <style lang="scss">
-.footer {
+.copyrigth {
   padding-bottom: 20px;
   align-items: center;
 }

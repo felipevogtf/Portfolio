@@ -2,7 +2,7 @@
 import type { ContactoData } from "@/models/contacto-data.model";
 
 export default {
-  name: "Contacto",
+  name: "ContactoComponent",
   props: {
     data: {
       type: Object as () => ContactoData,
@@ -43,8 +43,8 @@ export default {
 }
 
 @media screen and (min-width: 992px) {
-  .contacto{
-    .contenido{
+  .contacto {
+    .contenido {
       width: 50%;
     }
   }

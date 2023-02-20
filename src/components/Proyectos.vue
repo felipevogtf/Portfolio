@@ -34,6 +34,7 @@ export default {
         class="proyecto text-p fade-in"
         :class="index % 2 === 0 ? 'position-left' : 'position-right'"
         v-for="(item, index) in data.proyectos"
+        :key="index"
       >
         <a
           class="img-wrapper"
@@ -52,7 +53,11 @@ export default {
             {{ item.descripcion }}
           </div>
           <div class="chips">
-            <div class="chip" v-for="(tecnologia, index) in item.tecnologias">
+            <div
+              class="chip"
+              v-for="(tecnologia, index) in item.tecnologias"
+              :key="index"
+            >
               {{ tecnologia }}
             </div>
           </div>

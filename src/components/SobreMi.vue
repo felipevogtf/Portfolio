@@ -17,12 +17,20 @@ export default {
     <div class="titulo text-h2 fade-in">{{ data.titulo }}</div>
     <div class="contenido fade-in">
       <div class="contenido-descripcion text-p">
-        <div v-for="(item, index) in data.parrafos" class="parrafo text-p">
+        <div
+          v-for="(item, index) in data.parrafos"
+          class="parrafo text-p"
+          :key="index"
+        >
           {{ item }}
         </div>
 
         <div class="contenido-tecnologias">
-          <div class="chips-icon" v-for="(item, index) in data.tecnologias">
+          <div
+            class="chips-icon"
+            v-for="(item, index) in data.tecnologias"
+            :key="index"
+          >
             <img class="chips-icon-svg" :src="item.icono" alt="" />
             <div class="chips-icon-name">{{ item.nombre }}</div>
           </div>

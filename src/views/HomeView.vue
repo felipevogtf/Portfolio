@@ -5,7 +5,7 @@ import Experiencia from "./../components/Experiencia.vue";
 import Proyectos from "./../components/Proyectos.vue";
 import OtrosProyectos from "./../components/OtrosProyectos.vue";
 import Contacto from "./../components/Contacto.vue";
-import Footer from "./../components/Footer.vue";
+import Copyrigth from "../components/Copyrigth.vue";
 import RedesSociales from "./../components/RedesSociales.vue";
 import { pageData } from "./../store/data";
 
@@ -17,7 +17,7 @@ export default {
     Proyectos,
     OtrosProyectos,
     Contacto,
-    Footer,
+    Copyrigth,
     RedesSociales,
   },
   data() {
@@ -86,10 +86,10 @@ export default {
       <OtrosProyectos :data="data.otros_proyectos" class="section-margin" />
     </section>
     <section>
-      <Contacto :data="data.contacto" class="section-margin" />
+      <Contacto id="footer" :data="data.contacto" class="section-margin" />
     </section>
-    <section id="footer">
-      <Footer />
+    <section>
+      <Copyrigth />
     </section>
 
     <RedesSociales :data="data.redes"></RedesSociales>
@@ -114,11 +114,11 @@ export default {
     display: flex;
     flex-direction: row;
     column-gap: 20px;
-    a{
+    a {
       color: var(--base-dark-text-color);
     }
 
-    a:hover{
+    a:hover {
       color: var(--primary-text-color-dark);
     }
   }
