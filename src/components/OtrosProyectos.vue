@@ -1,6 +1,9 @@
 <script lang="ts">
 import type { ProyectosData } from "@/models/proyectos-data.model";
 import type { Proyecto } from "@/models/proyecto.model";
+import { useElementVisibility } from "@vueuse/core";
+import { ref } from "vue";
+
 export default {
   name: "OtrosProyectosComponent",
   props: {
@@ -12,6 +15,7 @@ export default {
   data() {
     return {
       proyectos: [] as Proyecto[],
+      visibleCounter: 0,
     };
   },
   created() {
@@ -39,14 +43,35 @@ export default {
       }
     },
   },
+  setup() {
+    const target = ref(null);
+    const targetIsVisible = useElementVisibility(target);
+
+    return {
+      target,
+      targetIsVisible,
+    };
+  },
+  computed: {
+    fadeClass() {
+      if (this.targetIsVisible && this.visibleCounter === 0) {
+        this.visibleCounter++;
+        return "fade-in fade-in-animation";
+      } else {
+        return "";
+      }
+    },
+  },
 };
 </script>
 
 <template>
-  <div class="otros-proyectos">
-    <div class="titulo text-h2 fade-in">{{ data.titulo }}</div>
+  <div class="otros-proyectos" ref="target" :class="fadeClass">
+    <div class="titulo text-h2" style="animation-delay: 200ms">
+      {{ data.titulo }}
+    </div>
 
-    <div class="contenido fade-in">
+    <div class="contenido" :class="fadeClass" style="animation-delay: 300ms">
       <TransitionGroup name="slide-up">
         <a
           class="card"

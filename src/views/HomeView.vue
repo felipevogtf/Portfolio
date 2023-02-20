@@ -7,6 +7,7 @@ import OtrosProyectos from "./../components/OtrosProyectos.vue";
 import Contacto from "./../components/Contacto.vue";
 import Copyrigth from "../components/Copyrigth.vue";
 import RedesSociales from "./../components/RedesSociales.vue";
+import Navbar from "./../components/Navbar.vue";
 import { pageData } from "./../store/data";
 
 export default {
@@ -19,6 +20,7 @@ export default {
     Contacto,
     Copyrigth,
     RedesSociales,
+    Navbar,
   },
   data() {
     return {
@@ -33,66 +35,56 @@ export default {
       // etc...
     };
   },
-  mounted() {
-    const observer = new IntersectionObserver((entries) => {
-      // Loop over the entries
-      entries.forEach((entry) => {
-        // If the element is visible
-        if (entry.isIntersecting) {
-          // Add the animation class
-          entry.target.classList.add("fade-in-animation");
-          return;
-        }
-      });
-    });
-
-    this.$el.querySelectorAll(".fade-in").forEach((i: any) => {
-      if (i) {
-        observer.observe(i);
-      }
-    });
-  },
 };
 </script>
 
 <template>
   <main>
-    <div class="nav">
-      <div class="nav-logo fade-in">FV</div>
-      <div class="nav-link fade-in">
-        <a href="#sobre-mi">Sobre mi</a>
-        <a href="#experiencia">Experiencia</a>
-        <a href="#proyectos">Proyectos</a>
-        <a href="#footer">Contacto</a>
-      </div>
-    </div>
+    <Navbar :data="data.navbar"></Navbar>
     <section class="main-background" :style="styleObject">
-      <Presentacion :data="data.inicio" />
+      <Presentacion :id="data.inicio.id" :data="data.inicio" />
     </section>
     <section>
-      <SobreMi id="sobre-mi" :data="data.sobre_mi" class="section-margin" />
+      <SobreMi
+        :id="data.sobre_mi.id"
+        :data="data.sobre_mi"
+        class="section-margin"
+      />
     </section>
     <section>
       <Experiencia
-        id="experiencia"
+        :id="data.experiencia.id"
         :data="data.experiencia"
         class="section-margin"
       />
     </section>
     <section>
-      <Proyectos id="proyectos" :data="data.proyectos" class="section-margin" />
+      <Proyectos
+        :id="data.proyectos.id"
+        :data="data.proyectos"
+        class="section-margin"
+      />
     </section>
     <section>
-      <OtrosProyectos :data="data.otros_proyectos" class="section-margin" />
+      <OtrosProyectos
+        :id="data.otros_proyectos.id"
+        :data="data.otros_proyectos"
+        class="section-margin"
+      />
     </section>
     <section>
-      <Contacto id="footer" :data="data.contacto" class="section-margin" />
+      <Contacto
+        ref="test"
+        :id="data.contacto.id"
+        :data="data.contacto"
+        class="section-margin"
+      />
     </section>
     <section>
       <Copyrigth />
     </section>
 
-    <RedesSociales :data="data.redes"></RedesSociales>
+    <RedesSociales :id="data.redes.id" :data="data.redes"></RedesSociales>
   </main>
 </template>
 
@@ -100,28 +92,6 @@ export default {
 .main-background {
   background-color: var(--base-color);
   background-blend-mode: multiply;
-}
-
-.nav {
-  background-color: var(--base-color);
-  color: var(--base-dark-text-color);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 20px 30px;
-
-  .nav-link {
-    display: flex;
-    flex-direction: row;
-    column-gap: 20px;
-    a {
-      color: var(--base-dark-text-color);
-    }
-
-    a:hover {
-      color: var(--primary-text-color-dark);
-    }
-  }
 }
 
 // .main-background::before {
@@ -157,6 +127,7 @@ section > div {
   margin-top: 100px;
   margin-bottom: 100px;
 }
+
 @media screen and (min-width: 992px) {
   section > div {
     width: 60%;

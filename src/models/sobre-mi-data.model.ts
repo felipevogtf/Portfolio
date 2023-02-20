@@ -1,4 +1,5 @@
 export interface SobreMiData {
+  id: string;
   titulo: string;
   imagen: string;
   perfil_link: string;

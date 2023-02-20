@@ -1,6 +1,8 @@
 <script lang="ts">
 import type { Proyecto } from "@/models/proyecto.model";
 import type { ProyectosData } from "@/models/proyectos-data.model";
+import { useElementVisibility } from "@vueuse/core";
+import { ref } from "vue";
 
 export default {
   name: "ProyectosComponent",
@@ -9,6 +11,11 @@ export default {
       type: Object as () => ProyectosData,
       required: true,
     },
+  },
+  data() {
+    return {
+      visibleCounter: 0,
+    };
   },
   methods: {
     getLink(proyecto: Proyecto): string {
@@ -22,17 +29,46 @@ export default {
       return link;
     },
   },
+  setup() {
+    const target = ref(null);
+    const targetIsVisible = useElementVisibility(target);
+
+    return {
+      target,
+      targetIsVisible,
+    };
+  },
+  computed: {
+    fadeClass() {
+      if (this.targetIsVisible && this.visibleCounter === 0) {
+        this.visibleCounter++;
+        return "fade-in fade-in-animation";
+      } else {
+        return "";
+      }
+    },
+  },
 };
 </script>
 
 <template>
-  <div class="proyectos">
-    <div class="titulo text-h2 fade-in">{{ data.titulo }}</div>
+  <div class="proyectos" ref="target">
+    <div
+      class="titulo text-h2"
+      :class="fadeClass"
+      style="animation-delay: 200ms"
+    >
+      {{ data.titulo }}
+    </div>
 
     <div class="contenido">
       <div
-        class="proyecto text-p fade-in"
-        :class="index % 2 === 0 ? 'position-left' : 'position-right'"
+        class="proyecto text-p"
+        :class="[
+          fadeClass,
+          index % 2 === 0 ? 'position-left' : 'position-right',
+        ]"
+        style="animation-delay: 300ms"
         v-for="(item, index) in data.proyectos"
         :key="index"
       >

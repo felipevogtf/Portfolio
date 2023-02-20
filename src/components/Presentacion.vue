@@ -1,5 +1,7 @@
 <script lang="ts">
 import type { InicioData } from "@/models/inicio-data.model";
+import { useElementVisibility } from "@vueuse/core";
+import { ref } from "vue";
 
 export default {
   name: "PresentacionComponent",
@@ -14,13 +16,14 @@ export default {
       subtitulo: "",
       text: "",
       index: 0,
+      visibleCounter: 0,
     };
   },
   created() {
     this.subtitulo = this.data.subtitulo;
   },
   mounted() {
-    this.typing();
+    setTimeout(this.typing, 400);
   },
   methods: {
     typing() {
@@ -31,13 +34,42 @@ export default {
       }
     },
   },
+  setup() {
+    const target = ref(null);
+    const targetIsVisible = useElementVisibility(target);
+
+    return {
+      target,
+      targetIsVisible,
+    };
+  },
+  computed: {
+    fadeClass() {
+      if (this.targetIsVisible && this.visibleCounter === 0) {
+        this.visibleCounter++;
+        return "fade-in fade-in-animation";
+      } else {
+        return "";
+      }
+    },
+  },
 };
 </script>
 
 <template>
-  <div class="presentacion">
-    <div class="presentacion-titulo text-h1 fade-in">{{ data.titulo }}</div>
-    <div class="presentacion-sub-titulo fade-in text-h2">
+  <div class="presentacion" ref="target">
+    <div
+      class="presentacion-titulo text-h1"
+      :class="fadeClass"
+      style="animation-delay: 200ms"
+    >
+      {{ data.titulo }}
+    </div>
+    <div
+      class="presentacion-sub-titulo text-h2"
+      :class="fadeClass"
+      style="animation-delay: 300ms"
+    >
       {{ text }}
 
       <span
@@ -45,7 +77,11 @@ export default {
         v-bind:class="text.length === subtitulo.length ? 'blink-animation' : ''"
       ></span>
     </div>
-    <div class="presentacion-descripcion text-p fade-in">
+    <div
+      class="presentacion-descripcion text-p"
+      :class="fadeClass"
+      style="animation-delay: 400ms"
+    >
       {{ data.descripcion }}
     </div>
   </div>
@@ -72,7 +108,6 @@ export default {
 
   .presentacion-descripcion {
     margin-top: 20px;
-    animation-delay: 300ms;
     width: 100%;
   }
 }

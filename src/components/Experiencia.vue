@@ -1,4 +1,7 @@
 <script lang="ts">
+import { useElementVisibility } from "@vueuse/core";
+import { ref } from "vue";
+
 interface ExperienciaData {
   titulo: string;
   experiencias: ExperienciaLaboral[];
@@ -25,6 +28,7 @@ export default {
     return {
       selected: [this.data.experiencias[0]],
       navs: [""],
+      visibleCounter: 0,
     };
   },
   created() {
@@ -36,14 +40,43 @@ export default {
       this.selected.push(this.data.experiencias[num]);
     },
   },
+  setup() {
+    const target = ref(null);
+    const targetIsVisible = useElementVisibility(target);
+
+    return {
+      target,
+      targetIsVisible,
+    };
+  },
+  computed: {
+    fadeClass() {
+      if (this.targetIsVisible && this.visibleCounter === 0) {
+        this.visibleCounter++;
+        return "fade-in fade-in-animation";
+      } else {
+        return "";
+      }
+    },
+  },
 };
 </script>
 
 <template>
-  <div class="experiencia">
-    <div class="titulo text-h2 fade-in">{{ data.titulo }}</div>
+  <div class="experiencia" ref="target">
+    <div
+      class="titulo text-h2"
+      :class="fadeClass"
+      style="animation-delay: 200ms"
+    >
+      {{ data.titulo }}
+    </div>
 
-    <div class="contenido text-p fade-in">
+    <div
+      class="contenido text-p"
+      :class="fadeClass"
+      style="animation-delay: 300ms"
+    >
       <div class="botonera">
         <button
           v-for="(item, index) in navs"
@@ -95,7 +128,6 @@ export default {
 <style lang="scss">
 .experiencia {
   .contenido {
-    animation-delay: 200ms;
     display: flex;
     flex-direction: column;
     width: 100%;

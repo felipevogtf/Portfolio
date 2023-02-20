@@ -6,7 +6,7 @@ export default {
 
 <template>
   <div class="copyrigth">
-    <div class="fade-in">
+    <div>
       <a
         rel="noopener noreferrer"
         target="_blank"

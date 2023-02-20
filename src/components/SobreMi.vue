@@ -1,5 +1,7 @@
 <script lang="ts">
 import type { SobreMiData } from "@/models/sobre-mi-data.model";
+import { useElementVisibility } from "@vueuse/core";
+import { ref } from "vue";
 
 export default {
   name: "SobreMiComponent",
@@ -9,13 +11,43 @@ export default {
       required: true,
     },
   },
+  data() {
+    return {
+      visibleCounter: 0,
+    };
+  },
+  setup() {
+    const target = ref(null);
+    const targetIsVisible = useElementVisibility(target);
+
+    return {
+      target,
+      targetIsVisible,
+    };
+  },
+  computed: {
+    fadeClass() {
+      if (this.targetIsVisible && this.visibleCounter === 0) {
+        this.visibleCounter++;
+        return "fade-in fade-in-animation";
+      } else {
+        return "";
+      }
+    },
+  },
 };
 </script>
 
 <template>
-  <div class="sobre-mi">
-    <div class="titulo text-h2 fade-in">{{ data.titulo }}</div>
-    <div class="contenido fade-in">
+  <div class="sobre-mi" ref="target">
+    <div
+      class="titulo text-h2"
+      :class="fadeClass"
+      style="animation-delay: 200ms"
+    >
+      {{ data.titulo }}
+    </div>
+    <div class="contenido" :class="fadeClass" style="animation-delay: 300ms">
       <div class="contenido-descripcion text-p">
         <div
           v-for="(item, index) in data.parrafos"
@@ -54,7 +86,6 @@ export default {
 <style lang="scss">
 .sobre-mi {
   .contenido {
-    animation-delay: 200ms;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
