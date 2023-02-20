@@ -1,12 +1,35 @@
 {
   "titulo_pagina": "Felipe Vogt",
+  "navbar": {
+    "logo": "/imgs/logo.svg",
+    "items": [
+      {
+        "id": "about-me",
+        "nombre": "Sobre mi"
+      },
+      {
+        "id": "experience",
+        "nombre": "Experiencias"
+      },
+      {
+        "id": "projects",
+        "nombre": "Proyectos"
+      },
+      {
+        "id": "contact",
+        "nombre": "Contacto"
+      }
+    ]
+  },
   "inicio": {
+    "id": "home",
     "titulo": "Felipe Vogt",
     "subtitulo": "Desarrollador Full-Stack",
     "descripcion": "Soy un ingeniero de software especializado en construir aplicaciones altamente escalables y con un alto rendimiento.",
     "background": "./imgs/background.png"
   },
   "sobre_mi": {
+    "id": "about-me",
     "titulo": "Sobre Mi",
     "imagen": "./imgs/profile.jpg",
     "perfil_link": "https://www.linkedin.com/in/felipe-vogt-625329237/",
@@ -62,6 +85,7 @@
     ]
   },
   "experiencia": {
+    "id": "experience",
     "titulo": "Experiencia",
     "experiencias": [
       {
@@ -101,6 +125,7 @@
     ]
   },
   "proyectos": {
+    "id": "projects",
     "titulo": "Proyectos",
     "proyectos": [
       {
@@ -122,6 +147,7 @@
     ]
   },
   "otros_proyectos": {
+    "id": "other-projects",
     "titulo": "Otros proyectos",
     "boton_mostrar_mas": "Mostrar más",
     "proyectos": [
@@ -142,12 +168,14 @@
     ]
   },
   "contacto": {
+    "id": "contact",
     "titulo": "Contacto",
     "descripcion": "Actualmente estoy en búsqueda de nuevas oportunidades en el área de desarrollo de software. Si estás buscando un profesional experimentado con habilidades en programación, no dudes en contactarme.",
     "boton_contacto": "Contactame",
     "email": "felipevogt.f@gmail.com"
   },
   "redes": {
+    "id": "social-medias",
     "redes": [
       {
         "nombre": "Github",
