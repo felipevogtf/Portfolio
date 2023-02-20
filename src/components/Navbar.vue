@@ -61,9 +61,9 @@ export default {
       @focusout="handleFocusOut"
       tabindex="0"
     >
-      <div class="logo">
+      <router-link to="/" class="logo">
         <img :src="data.logo" alt="" />
-      </div>
+      </router-link>
 
       <div
         class="nav-toggle"
@@ -78,10 +78,20 @@ export default {
         :class="showMobileMenu ? 'open-menu' : 'closed-menu'"
       >
         <a
+          class="nav-link"
           v-for="(item, index) in data.items"
           :key="index"
           :href="`#${item.id}`"
           >{{ item.nombre }}</a
+        >
+
+        <a
+          class="nav-button"
+          rel="noopener noreferrer"
+          target="_blank"
+          :href="data.curriculum.link"
+          v-if="data.curriculum.link"
+          >{{ data.curriculum.nombre }}</a
         >
       </div>
     </div>
@@ -98,7 +108,7 @@ export default {
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
-  padding: 10px 20px;
+  padding: 0px 20px;
 }
 .nav-content {
   display: flex;
@@ -106,11 +116,11 @@ export default {
   align-items: center;
   column-gap: 20px;
   padding: 20px 0px;
-  a {
+  a.nav-link {
     color: var(--base-dark-text-color);
     transition: color 200ms;
   }
-  a:hover {
+  a.nav-link:hover {
     color: var(--primary-text-color-dark);
   }
 }
@@ -119,10 +129,27 @@ export default {
 }
 .logo {
   margin: 0;
+  display: flex;
+  align-items: center;
 
   img {
     height: 40px;
   }
+}
+
+.nav-button {
+  background: none;
+  color: var(--primary-text-color-dark);
+  padding: 10px 20px;
+  border: solid 2px;
+  font-size: inherit;
+  border-radius: 5px;
+  transition: background 200ms;
+}
+
+.nav-button:hover {
+  cursor: pointer;
+  background: rgba(0, 227, 162, 0.1);
 }
 
 @media screen and (max-width: 992px) {
@@ -173,12 +200,31 @@ export default {
     transition: all 0.2s ease-out;
     flex-basis: 100%;
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
-    a {
+    a.nav-link {
       color: var(--base-text-color);
     }
-    a:hover {
+    a.nav-link:hover {
       color: var(--base-dark-text-color);
     }
+
+    .text-link {
+      color: var(--base-dark-text-color) !important;
+    }
+  }
+
+  .nav-button {
+    background: none;
+    color: var(--base-text-color);
+    padding: 10px 20px;
+    border: solid 2px;
+    font-size: inherit;
+    border-radius: 5px;
+    transition: background 200ms;
+  }
+
+  .nav-button:hover {
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0.1);
   }
 }
 </style>

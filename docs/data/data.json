@@ -19,7 +19,11 @@
         "id": "contact",
         "nombre": "Contacto"
       }
-    ]
+    ],
+    "curriculum": {
+      "nombre": "Currículum",
+      "link": "https://drive.google.com/file/d/1g1xiYpHee9Iu28g-s6Jm4fC6JzZz692S/view?usp=share_link"
+    }
   },
   "inicio": {
     "id": "home",
@@ -32,7 +36,7 @@
     "id": "about-me",
     "titulo": "Sobre Mi",
     "imagen": "./imgs/profile.jpg",
-    "perfil_link": "https://www.linkedin.com/in/felipe-vogt-625329237/",
+    "perfil_link": "https://www.linkedin.com/in/felipevogtf/",
     "parrafos": [
       "¡Hola! Mi nombre es Felipe y soy un programador full stack con experiencia en el desarrollo de aplicaciones web integrales y dinámicas. Mis habilidades me permiten trabajar tanto en el lado del cliente como en el lado del servidor, lo que me permite ofrecer soluciones completas y personalizadas para satisfacer las necesidades específicas de mis clientes.",
       "Una de mis fortalezas es mi compromiso con el aprendizaje continuo y la actualización constante de mis habilidades y conocimientos. Me mantengo al día con las últimas tendencias y tecnologías en el campo de la programación para garantizar que las soluciones que ofrezco sean siempre innovadoras y actualizadas."
@@ -107,7 +111,7 @@
         "fecha": "Agosto 2021 - Mayo 2022",
         "funciones": [
           "Desarrollo y mantención de la aplicación móvil MiSQM realizada en Ionic, que ofrece distintas funcionalidades para facilitar la forma de trabajar de los empleados.",
-          "Desarrollo y mantención de la API para la aplicación MiSQM, mediante la librería Codeigniter.",
+          "Desarrollo y mantención de la API para la aplicación MiSQM, utilizando la librería Codeigniter para garantizar la conectividad y el funcionamiento óptimo de la aplicación.",
           "Mantención de la pagina Wordpress de MiSQM y desarrollo de nuevos plugins para el sitio."
         ]
       },
@@ -118,7 +122,7 @@
         "cargo": "Programador Front-End en",
         "fecha": "Noviembre 2020 - Marzo 2021",
         "funciones": [
-          "Desarrollo de minijuegos interactivos para la aplicación móvil AcamyKids, los cuales están enfocados en facilitar el aprendizaje de los estudiantes del segundo ciclo de enseñanza básica.",
+          "Desarrollo de minijuegos interactivos para la aplicación móvil AcamyKids realizada en Flutter, enfocados en facilitar el aprendizaje de los estudiantes del segundo ciclo de enseñanza básica.",
           "Mantención de la API de AcamyKids mediante el framework Laravel."
         ]
       }
@@ -184,7 +188,7 @@
       },
       {
         "nombre": "Linkedin",
-        "url": "https://www.linkedin.com/in/felipe-vogt-625329237/",
+        "url": "https://www.linkedin.com/in/felipevogtf/",
         "fontawesome_icon": "fa-brands fa-linkedin-in"
       }
     ]
