@@ -1,4 +1,5 @@
 export interface NavbarData {
+  logo: string;
   items: NavItems[];
 }
 

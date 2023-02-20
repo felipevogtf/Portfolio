@@ -1,6 +1,7 @@
 {
   "titulo_pagina": "Felipe Vogt",
   "navbar": {
+    "logo": "/imgs/logo.svg",
     "items": [
       {
         "id": "about-me",

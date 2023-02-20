@@ -1,20 +1,7 @@
 <script lang="ts">
+import type { ExperienciaData } from "@/models/experiencia-data.model";
 import { useElementVisibility } from "@vueuse/core";
 import { ref } from "vue";
-
-interface ExperienciaData {
-  titulo: string;
-  experiencias: ExperienciaLaboral[];
-}
-
-interface ExperienciaLaboral {
-  empresa: string;
-  empresa_abrev: string;
-  empresa_link: string;
-  cargo: string;
-  fecha: string;
-  funciones: string[];
-}
 
 export default {
   name: "ExperienciaComponent",

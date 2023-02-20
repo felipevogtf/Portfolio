@@ -1,5 +1,5 @@
 <script lang="ts">
-import type { NavbarData } from "@/models/navbar.model";
+import type { NavbarData } from "@/models/navbar-data.model";
 import { useElementVisibility } from "@vueuse/core";
 import { ref } from "vue";
 
@@ -20,6 +20,11 @@ export default {
   methods: {
     showMenu() {
       this.showMobileMenu = !this.showMobileMenu;
+    },
+    handleFocusOut() {
+      setTimeout(() => {
+        this.showMobileMenu = false;
+      }, 100);
     },
   },
   setup() {
@@ -46,8 +51,16 @@ export default {
 
 <template>
   <div class="nav" ref="target">
-    <div class="nav-menu" :class="fadeClass" style="animation-delay: 200ms">
-      <div class="logo">FV</div>
+    <div
+      class="nav-menu"
+      :class="fadeClass"
+      style="animation-delay: 200ms"
+      @focusout="handleFocusOut"
+      tabindex="0"
+    >
+      <div class="logo">
+        <img :src="data.logo" alt="" />
+      </div>
 
       <div
         class="nav-toggle"
@@ -92,6 +105,7 @@ export default {
   padding: 20px 0px;
   a {
     color: var(--base-dark-text-color);
+    transition: color 200ms;
   }
   a:hover {
     color: var(--primary-text-color-dark);
@@ -101,23 +115,30 @@ export default {
   visibility: hidden;
 }
 .logo {
-  margin: 20px 10px;
+  margin: 0;
+
+  img {
+    height: 40px;
+  }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 992px) {
   .nav-menu {
     padding: 0;
     position: absolute;
     width: 100%;
+    z-index: 100;
   }
   .logo {
-    margin-left: 20px;
-    margin-top: 10px;
+    margin: 0px 10px;
   }
   .nav-toggle {
-    padding: 10px 20px;
     visibility: visible;
-    margin-right: 20px;
+    transition: background 200ms;
+
+    padding-top: 12px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
   .nav-toggle:hover {
     cursor: pointer;
@@ -148,6 +169,7 @@ export default {
     position: relative;
     transition: all 0.2s ease-out;
     flex-basis: 100%;
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
     a {
       color: var(--base-text-color);
     }
