@@ -15,7 +15,7 @@ export default {
     return {
       selected: [this.data.experiencias[0]],
       navs: [""],
-      visibleCounter: 0,
+      visibleCounter: false,
     };
   },
   created() {
@@ -25,6 +25,9 @@ export default {
     cambiarExperiencia(num: number) {
       this.selected.splice(0, this.selected.length);
       this.selected.push(this.data.experiencias[num]);
+    },
+    setVisible() {
+      this.visibleCounter = true;
     },
   },
   setup() {
@@ -38,8 +41,8 @@ export default {
   },
   computed: {
     fadeClass() {
-      if (this.targetIsVisible && this.visibleCounter === 0) {
-        this.visibleCounter++;
+      if (this.targetIsVisible && !this.visibleCounter) {
+        this.setVisible();
         return "fade-in fade-in-animation";
       } else {
         return "";

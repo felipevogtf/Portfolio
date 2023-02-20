@@ -16,7 +16,7 @@ export default {
       subtitulo: "",
       text: "",
       index: 0,
-      visibleCounter: 0,
+      visibleCounter: false,
     };
   },
   created() {
@@ -33,6 +33,9 @@ export default {
         setTimeout(this.typing, 50);
       }
     },
+    setVisible() {
+      this.visibleCounter = true;
+    },
   },
   setup() {
     const target = ref(null);
@@ -45,8 +48,8 @@ export default {
   },
   computed: {
     fadeClass() {
-      if (this.targetIsVisible && this.visibleCounter === 0) {
-        this.visibleCounter++;
+      if (this.targetIsVisible && !this.visibleCounter) {
+        this.setVisible();
         return "fade-in fade-in-animation";
       } else {
         return "";

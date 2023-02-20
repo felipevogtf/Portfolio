@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       proyectos: [] as Proyecto[],
-      visibleCounter: 0,
+      visibleCounter: false,
     };
   },
   created() {
@@ -31,6 +31,9 @@ export default {
       }
 
       return link;
+    },
+    setVisible() {
+      this.visibleCounter = true;
     },
     mostrarMas() {
       const min = this.proyectos.length;
@@ -54,8 +57,8 @@ export default {
   },
   computed: {
     fadeClass() {
-      if (this.targetIsVisible && this.visibleCounter === 0) {
-        this.visibleCounter++;
+      if (this.targetIsVisible && !this.visibleCounter) {
+        this.setVisible();
         return "fade-in fade-in-animation";
       } else {
         return "";

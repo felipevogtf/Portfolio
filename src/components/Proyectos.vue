@@ -14,7 +14,7 @@ export default {
   },
   data() {
     return {
-      visibleCounter: 0,
+      visibleCounter: false,
     };
   },
   methods: {
@@ -28,6 +28,9 @@ export default {
 
       return link;
     },
+    setVisible() {
+      this.visibleCounter = true;
+    },
   },
   setup() {
     const target = ref(null);
@@ -40,8 +43,8 @@ export default {
   },
   computed: {
     fadeClass() {
-      if (this.targetIsVisible && this.visibleCounter === 0) {
-        this.visibleCounter++;
+      if (this.targetIsVisible && !this.visibleCounter) {
+        this.setVisible();
         return "fade-in fade-in-animation";
       } else {
         return "";

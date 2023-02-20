@@ -13,7 +13,7 @@ export default {
   },
   data() {
     return {
-      visibleCounter: 0,
+      visibleCounter: false,
     };
   },
   setup() {
@@ -25,10 +25,15 @@ export default {
       targetIsVisible,
     };
   },
+  methods: {
+    setVisible() {
+      this.visibleCounter = true;
+    },
+  },
   computed: {
     fadeClass() {
-      if (this.targetIsVisible && this.visibleCounter === 0) {
-        this.visibleCounter++;
+      if (this.targetIsVisible && !this.visibleCounter) {
+        this.setVisible();
         return "fade-in fade-in-animation";
       } else {
         return "";

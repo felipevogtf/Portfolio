@@ -14,7 +14,7 @@ export default {
   data() {
     return {
       showMobileMenu: false,
-      visibleCounter: 0,
+      visibleCounter: false,
     };
   },
   methods: {
@@ -25,6 +25,9 @@ export default {
       setTimeout(() => {
         this.showMobileMenu = false;
       }, 100);
+    },
+    setVisible() {
+      this.visibleCounter = true;
     },
   },
   setup() {
@@ -38,8 +41,8 @@ export default {
   },
   computed: {
     fadeClass() {
-      if (this.targetIsVisible && this.visibleCounter === 0) {
-        this.visibleCounter++;
+      if (this.targetIsVisible && !this.visibleCounter) {
+        this.setVisible();
         return "fade-in fade-in-animation";
       } else {
         return "";
