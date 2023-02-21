@@ -199,6 +199,7 @@ section > div {
   align-items: flex-start;
   padding: 0px 10px;
   width: 90%;
+  max-width: 2000px;
 }
 
 footer > div {
@@ -208,6 +209,7 @@ footer > div {
   align-items: flex-start;
   padding: 0px 10px;
   width: 90%;
+  max-width: 2000px;
 }
 
 .section-margin {
