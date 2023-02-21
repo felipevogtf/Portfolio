@@ -62,7 +62,7 @@ export default {
       tabindex="0"
     >
       <router-link to="/" class="logo">
-        <img :src="data.logo" alt="" />
+        <img :src="data.logo" alt="logo" />
       </router-link>
 
       <div

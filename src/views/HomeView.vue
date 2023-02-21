@@ -39,40 +39,47 @@ export default {
 </script>
 
 <template>
-  <main>
-    <Navbar :data="data.navbar"></Navbar>
-    <section class="main-background" :style="styleObject">
+  <main role="main">
+    <nav role="navigation">
+      <Navbar :data="data.navbar"></Navbar>
+    </nav>
+    <section
+      class="main-background"
+      :style="styleObject"
+      role="region"
+      :aria-labelledby="data.inicio.id"
+    >
       <Presentacion :id="data.inicio.id" :data="data.inicio" />
     </section>
-    <section>
+    <section role="region" :aria-labelledby="data.sobre_mi.id">
       <SobreMi
         :id="data.sobre_mi.id"
         :data="data.sobre_mi"
         class="section-margin"
       />
     </section>
-    <section>
+    <section role="region" :aria-labelledby="data.experiencia.id">
       <Experiencia
         :id="data.experiencia.id"
         :data="data.experiencia"
         class="section-margin"
       />
     </section>
-    <section>
+    <section role="region" :aria-labelledby="data.proyectos.id">
       <Proyectos
         :id="data.proyectos.id"
         :data="data.proyectos"
         class="section-margin"
       />
     </section>
-    <section>
+    <section role="region" :aria-labelledby="data.otros_proyectos.id">
       <OtrosProyectos
         :id="data.otros_proyectos.id"
         :data="data.otros_proyectos"
         class="section-margin"
       />
     </section>
-    <section>
+    <section role="region" :aria-labelledby="data.contacto.id">
       <Contacto
         ref="test"
         :id="data.contacto.id"
@@ -80,9 +87,9 @@ export default {
         class="section-margin"
       />
     </section>
-    <section>
+    <footer role="contentinfo">
       <Copyrigth />
-    </section>
+    </footer>
 
     <RedesSociales :id="data.redes.id" :data="data.redes"></RedesSociales>
   </main>
@@ -108,6 +115,7 @@ export default {
 //   opacity: 0.3;
 // }
 
+footer,
 section {
   display: flex;
   flex-direction: column;
@@ -123,6 +131,15 @@ section > div {
   width: 90%;
 }
 
+footer > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 0px 10px;
+  width: 90%;
+}
+
 .section-margin {
   margin-top: 100px;
   margin-bottom: 100px;
@@ -130,6 +147,10 @@ section > div {
 
 @media screen and (min-width: 992px) {
   section > div {
+    width: 60%;
+  }
+
+  footer > div {
     width: 60%;
   }
 }

@@ -73,7 +73,7 @@ export default {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img :src="data.imagen" alt="" />
+          <img :src="data.imagen" :alt="data.titulo" />
         </a>
       </div>
     </div>
