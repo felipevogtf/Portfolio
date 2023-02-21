@@ -8,7 +8,6 @@ import Contacto from "./../components/Contacto.vue";
 import Copyrigth from "../components/Copyrigth.vue";
 import RedesSociales from "./../components/RedesSociales.vue";
 import Navbar from "./../components/Navbar.vue";
-import { pageData } from "./../store/data";
 
 export default {
   components: {
@@ -25,27 +24,24 @@ export default {
   data() {
     return {
       data: null as any,
-      styleObject: {},
     };
   },
-  created() {
-    this.data = pageData.data;
-    this.styleObject = {
-      "--background": `url(${this.data.inicio.background})`,
-      // etc...
-    };
+  async mounted() {
+    const baseUrl = import.meta.env.VITE_URL;
+    const response = await fetch(`${baseUrl}data/data.json`);
+    const file = await response.json();
+    this.data = file;
   },
 };
 </script>
 
 <template>
-  <main role="main">
+  <main role="main" v-if="data">
     <nav role="navigation">
       <Navbar :data="data.navbar"></Navbar>
     </nav>
     <section
       class="main-background"
-      :style="styleObject"
       role="region"
       :aria-labelledby="data.inicio.id"
     >
@@ -93,9 +89,83 @@ export default {
 
     <RedesSociales :id="data.redes.id" :data="data.redes"></RedesSociales>
   </main>
+
+  <div class="main-background load-full-page" v-else>
+    <div class="lds-ellipsis">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss">
+.load-full-page {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: var(--base-dark-text-color);
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
+}
+
 .main-background {
   background-color: var(--base-color);
   background-blend-mode: multiply;

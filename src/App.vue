@@ -1,15 +1,9 @@
 <script lang="ts">
 import { RouterView } from "vue-router";
-import { pageData } from "./store/data";
 
 export default {
   components: {
     RouterView,
-  },
-  data() {
-    return {
-      data: null as any,
-    };
   },
   async created() {
     const baseUrl = import.meta.env.VITE_URL;
@@ -17,15 +11,13 @@ export default {
     const response = await fetch(`${baseUrl}data/data.json`);
     const file = await response.json();
 
-    pageData.setData(file);
-
-    document.title = pageData.data.titulo_pagina;
+    document.title = file.titulo_pagina;
   },
 };
 </script>
 
 <template>
-  <RouterView :model="data" />
+  <RouterView />
 </template>
 
 <style scoped></style>
