@@ -54,19 +54,11 @@ export default {
 
 <template>
   <div class="experiencia" ref="target">
-    <div
-      class="titulo text-h2"
-      :class="fadeClass"
-      style="animation-delay: 200ms"
-    >
+    <h2 class="titulo" :class="fadeClass" style="animation-delay: 200ms">
       {{ data.titulo }}
-    </div>
+    </h2>
 
-    <div
-      class="contenido text-p"
-      :class="fadeClass"
-      style="animation-delay: 300ms"
-    >
+    <div class="contenido" :class="fadeClass" style="animation-delay: 300ms">
       <div class="botonera">
         <button
           v-for="(item, index) in navs"
@@ -90,7 +82,7 @@ export default {
             v-for="item in selected"
             v-bind:key="item.empresa_abrev"
           >
-            <div class="text-h3">
+            <h3>
               {{ item.cargo }}
               <a
                 class="text-link"
@@ -99,8 +91,8 @@ export default {
                 target="_blank"
                 >{{ item.empresa }}</a
               >
-            </div>
-            <div>{{ item.fecha }}</div>
+            </h3>
+            <h4>{{ item.fecha }}</h4>
             <div class="contenido-descripcion">
               <ul>
                 <li v-for="funcion in item.funciones" v-bind:key="funcion">
@@ -124,6 +116,9 @@ export default {
   }
 
   .contenido-detalle {
+    h4{
+      margin-top: 5px;
+    }
     .contenido-descripcion {
       margin-top: 10px;
 

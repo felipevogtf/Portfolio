@@ -45,22 +45,14 @@ export default {
 
 <template>
   <div class="sobre-mi" ref="target">
-    <div
-      class="titulo text-h2"
-      :class="fadeClass"
-      style="animation-delay: 200ms"
-    >
+    <h2 class="titulo" :class="fadeClass" style="animation-delay: 200ms">
       {{ data.titulo }}
-    </div>
+    </h2>
     <div class="contenido" :class="fadeClass" style="animation-delay: 300ms">
-      <div class="contenido-descripcion text-p">
-        <div
-          v-for="(item, index) in data.parrafos"
-          class="parrafo text-p"
-          :key="index"
-        >
+      <div class="contenido-descripcion">
+        <p v-for="(item, index) in data.parrafos" class="parrafo" :key="index">
           {{ item }}
-        </div>
+        </p>
 
         <div class="contenido-tecnologias">
           <div
@@ -68,8 +60,8 @@ export default {
             v-for="(item, index) in data.tecnologias"
             :key="index"
           >
-            <img class="chips-icon-svg" :src="item.icono" alt="" />
-            <div class="chips-icon-name">{{ item.nombre }}</div>
+            <img class="chips-icon-svg" :src="item.icono" :alt="item.nombre" />
+            <span class="chips-icon-name">{{ item.nombre }}</span>
           </div>
         </div>
       </div>

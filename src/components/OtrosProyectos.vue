@@ -70,9 +70,9 @@ export default {
 
 <template>
   <div class="otros-proyectos" ref="target" :class="fadeClass">
-    <div class="titulo text-h2" style="animation-delay: 200ms">
+    <h2 class="titulo" style="animation-delay: 200ms">
       {{ data.titulo }}
-    </div>
+    </h2>
 
     <div class="contenido" :class="fadeClass" style="animation-delay: 300ms">
       <TransitionGroup name="slide-up">
@@ -85,9 +85,9 @@ export default {
           v-bind:key="index"
         >
           <div class="card-header">
-            <div class="text-h2 text-accent">
+            <h2 class="text-accent">
               <i class="fa-solid fa-code"></i>
-            </div>
+            </h2>
 
             <div class="card-opciones">
               <a
@@ -99,7 +99,7 @@ export default {
               >
                 <i class="fa-brands fa-github"></i>
               </a>
-              <div
+              <a
                 class="icon-button text-h3"
                 v-if="item.demo_link"
                 :href="item.demo_link"
@@ -107,19 +107,19 @@ export default {
                 target="_blank"
               >
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
-              </div>
+              </a>
             </div>
           </div>
-          <div class="card-titulo text-h3 text-accent">{{ item.titulo }}</div>
-          <div class="card-descripcion text-p">{{ item.descripcion }}</div>
+          <h3 class="card-titulo text-accent">{{ item.titulo }}</h3>
+          <p class="card-descripcion">{{ item.descripcion }}</p>
           <div class="chips">
-            <div
+            <span
               class="chip"
               v-for="(tecnologia, index) in item.tecnologias"
               :key="index"
             >
               {{ tecnologia }}
-            </div>
+            </span>
           </div>
         </a>
       </TransitionGroup>
@@ -157,6 +157,10 @@ export default {
         display: flex;
         flex-direction: row;
         column-gap: 15px;
+
+        .icon-button {
+          font-size: xx-large;
+        }
       }
 
       .card-titulo {

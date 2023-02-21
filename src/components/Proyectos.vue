@@ -56,17 +56,13 @@ export default {
 
 <template>
   <div class="proyectos" ref="target">
-    <div
-      class="titulo text-h2"
-      :class="fadeClass"
-      style="animation-delay: 200ms"
-    >
+    <h2 class="titulo" :class="fadeClass" style="animation-delay: 200ms">
       {{ data.titulo }}
-    </div>
+    </h2>
 
     <div class="contenido">
       <div
-        class="proyecto text-p"
+        class="proyecto"
         :class="[
           fadeClass,
           index % 2 === 0 ? 'position-left' : 'position-right',
@@ -81,24 +77,24 @@ export default {
           rel="noopener noreferrer"
           target="_blank"
         >
-          <img :src="item.imagen" alt="" />
+          <img :src="item.imagen" :alt="item.titulo" />
         </a>
         <div
           class="proyecto-card"
           :class="index % 2 === 0 ? 'position-left' : 'position-right'"
         >
-          <div class="text-h3 text-accent">{{ item.titulo }}</div>
-          <div class="proyecto-descripcion">
+          <h3 class="text-accent">{{ item.titulo }}</h3>
+          <p class="proyecto-descripcion">
             {{ item.descripcion }}
-          </div>
+          </p>
           <div class="chips">
-            <div
+            <span
               class="chip"
               v-for="(tecnologia, index) in item.tecnologias"
               :key="index"
             >
               {{ tecnologia }}
-            </div>
+            </span>
           </div>
 
           <div class="botonera">
@@ -152,8 +148,9 @@ export default {
       backdrop-filter: blur(5.2px);
 
       background-position: center;
-      box-shadow: inset 0 0 0 2000px rgb(0 0 0 / 83%),
-        5px 5px 10px rgb(0 0 0 / 15%);
+
+      background: rgba(0, 0, 0, 0.7);
+      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
     }
 
     .proyecto-descripcion {
@@ -202,6 +199,10 @@ export default {
       opacity: 1;
       filter: grayscale(10%);
     }
+  }
+
+  .chips {
+    margin-top: 10px;
   }
 }
 

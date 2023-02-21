@@ -45,20 +45,12 @@ export default {
 
 <template>
   <div class="contacto" ref="target">
-    <div
-      class="titulo text-h2"
-      :class="fadeClass"
-      style="animation-delay: 200ms"
-    >
+    <h2 class="titulo" :class="fadeClass" style="animation-delay: 200ms">
       {{ data.titulo }}
-    </div>
-    <div
-      class="contenido text-p"
-      :class="fadeClass"
-      style="animation-delay: 250ms"
-    >
+    </h2>
+    <p class="contenido" :class="fadeClass" style="animation-delay: 250ms">
       {{ data.descripcion }}
-    </div>
+    </p>
     <div
       class="contacto-button"
       :class="fadeClass"

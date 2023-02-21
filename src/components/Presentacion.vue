@@ -61,15 +61,15 @@ export default {
 
 <template>
   <div class="presentacion" ref="target">
-    <div
-      class="presentacion-titulo text-h1"
+    <h1
+      class="presentacion-titulo"
       :class="fadeClass"
       style="animation-delay: 200ms"
     >
       {{ data.titulo }}
-    </div>
-    <div
-      class="presentacion-sub-titulo text-h2"
+    </h1>
+    <h2
+      class="presentacion-sub-titulo"
       :class="fadeClass"
       style="animation-delay: 300ms"
     >
@@ -79,14 +79,14 @@ export default {
         class="blink"
         v-bind:class="text.length === subtitulo.length ? 'blink-animation' : ''"
       ></span>
-    </div>
-    <div
-      class="presentacion-descripcion text-p"
+    </h2>
+    <p
+      class="presentacion-descripcion"
       :class="fadeClass"
       style="animation-delay: 400ms"
     >
       {{ data.descripcion }}
-    </div>
+    </p>
   </div>
 </template>
 
