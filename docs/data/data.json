@@ -29,8 +29,7 @@
     "id": "home",
     "titulo": "Felipe Vogt",
     "subtitulo": "Desarrollador Full-Stack",
-    "descripcion": "Soy un ingeniero de software especializado en construir aplicaciones altamente escalables y con un alto rendimiento.",
-    "background": "./imgs/background.png"
+    "descripcion": "Soy un ingeniero de software especializado en construir aplicaciones altamente escalables y con un alto rendimiento."
   },
   "sobre_mi": {
     "id": "about-me",
