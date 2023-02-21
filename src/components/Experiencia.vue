@@ -148,7 +148,7 @@ export default {
       border-color: rgba(0, 0, 0, 0.1);
       color: var(--base-text-color);
       border-width: 0px 0px 2px 0px;
-      font-size: inherit;
+      font-size: 1rem;
       font-family: inherit;
       transition: background 200ms, color 200ms, border-color 300ms;
     }

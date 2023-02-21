@@ -119,6 +119,7 @@ export default {
   a.nav-link {
     color: var(--base-dark-text-color);
     transition: color 200ms;
+    font-size: 1rem;
   }
   a.nav-link:hover {
     color: var(--primary-text-color-dark);
@@ -142,7 +143,7 @@ export default {
   color: var(--primary-text-color-dark);
   padding: 10px 20px;
   border: solid 2px;
-  font-size: inherit;
+  font-size: 1rem;
   border-radius: 5px;
   transition: background 200ms;
 }
@@ -185,7 +186,7 @@ export default {
 
   .open-menu {
     opacity: 1;
-    height: 150px;
+    height: 300px;
   }
   .closed-menu {
     opacity: 0;
@@ -217,7 +218,7 @@ export default {
     color: var(--base-text-color);
     padding: 10px 20px;
     border: solid 2px;
-    font-size: inherit;
+    font-size: 1rem;
     border-radius: 5px;
     transition: background 200ms;
   }

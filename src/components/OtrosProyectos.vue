@@ -114,7 +114,7 @@ export default {
           <p class="card-descripcion">{{ item.descripcion }}</p>
           <div class="chips">
             <span
-              class="chip"
+              class="chip-span"
               v-for="(tecnologia, index) in item.tecnologias"
               :key="index"
             >
@@ -159,7 +159,7 @@ export default {
         column-gap: 15px;
 
         .icon-button {
-          font-size: xx-large;
+          font-size: 1.5rem;
         }
       }
 

@@ -89,7 +89,7 @@ export default {
           </p>
           <div class="chips">
             <span
-              class="chip"
+              class="chip-span"
               v-for="(tecnologia, index) in item.tecnologias"
               :key="index"
             >
@@ -165,7 +165,7 @@ export default {
       column-gap: 20px;
 
       .icon-button {
-        font-size: xx-large;
+        font-size: 1.5rem;
       }
     }
   }

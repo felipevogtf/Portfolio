@@ -38,7 +38,7 @@ export default {
   .social-button {
     color: var(--base-text-color);
     transition: color 200ms;
-    font-size: xx-large;
+    font-size: 1.5rem;
   }
 
   .social-button:hover {

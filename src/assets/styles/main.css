@@ -10,8 +10,18 @@
 html,
 body {
     margin: 0;
-    font-size: large;
     color: var(--base-text-color);
+    font-size: 16px;
+
+}
+
+@media screen and (max-width: 992px) {
+
+    html,
+    body {
+        font-size: 14px;
+
+    }
 }
 
 p,
@@ -32,7 +42,6 @@ html {
 body {
     font-family: CascadiaCode;
     background-color: var(--background-color);
-    color: var(--base-text-color);
 }
 
 a:link {
@@ -56,33 +65,33 @@ a:hover {
 
 h1 {
     font-weight: normal;
-    font-size: clamp(40px, 8vw, 80px);
+    font-size: clamp(3.1rem, 8vw, 5rem);
 }
 
 h2 {
-    font-size: xxx-large;
+    font-size: 2rem;
 }
 
 h3 {
-    font-size: xx-large;
+    font-size: 1.5rem;
 }
 
 h4 {
-    font-size: large;
+    font-size: 1rem;
     opacity: 0.85;
     padding: 3px 0px;
 }
 
 p {
     line-height: 1.5;
-    font-size: large;
+    font-size: 1rem;
 }
 
 
 
 ul {
     line-height: 1.5;
-    font-size: large;
+    font-size: 1rem;
 }
 
 .text-link {
@@ -139,6 +148,10 @@ ul {
     align-items: center;
 }
 
+.chip-span {
+    font-size: 1rem;
+}
+
 .chips-icon-svg {
     width: 25px;
     filter: brightness(0) invert(1);
@@ -146,6 +159,7 @@ ul {
 
 .chips-icon-name {
     padding-left: 5px;
+    font-size: 1rem;
 }
 
 .icon-button {
@@ -163,7 +177,7 @@ ul {
     color: var(--primary-text-color-dark);
     padding: 15px 40px;
     border: solid 2px;
-    font-size: inherit;
+    font-size: 1rem;
     border-radius: 5px;
     transition: background 200ms;
 }
