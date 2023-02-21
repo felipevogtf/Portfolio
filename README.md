@@ -5,7 +5,12 @@
   Felipe Vogt - Portfolio
 </h1>
 
-![demo](https://raw.githubusercontent.com/felipevogtf/Portfolio/main/public/demo.png)
+<div align="center">
+Mi portafolio personal realizado en Vue.js
+</div>
+</br>
+
+<a href="https://felipevogtf.github.io/Portfolio/" rel="noopener noreferrer" target="_blank">![demo](https://raw.githubusercontent.com/felipevogtf/Portfolio/main/public/demo.png)</a>
 
 ## Instalación
 
