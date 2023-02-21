@@ -116,7 +116,7 @@ export default {
   }
 
   .contenido-detalle {
-    h4{
+    h4 {
       margin-top: 5px;
     }
     .contenido-descripcion {
