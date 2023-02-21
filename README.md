@@ -35,6 +35,22 @@ npm run lint
 
 ## Configuración
 
+### Variables de entorno
+El proyecto está configurado para el funcionamiento con `Vite`, para ello existen dos archivos de variables de entorno:
+`.env` que se usa en el despliegue local y `.env.production` para el despliegue a producción.
+
+Ambos contienen la siguiente variable que se debe modificar para cada caso:
+```
+# .env
+VITE_URL=/
+
+# .env.production
+VITE_URL=/Portfolio/
+```
+*En este caso `/Portfolio/` es el directorio donde se encuentra hosteado el proyecto en GitHub Pages*
+
+### Información de la pagina
+
 La información del portfolio se carga a partir del archivo `public\data\data.json` , lo que permite que una vez compilada la aplicación puedas cambiar la información de la página sin tener que volver a compilar. 
 Por ejemplo, si quieres cambiar el título de la página o alguno de los textos de la página de inicio, basta con modificar algunos de los siguientes atributos.
 ```
