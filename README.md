@@ -74,6 +74,15 @@ Modificamos el atributo correspondiente en el archivo `data.json`, quedando de e
 }
 ```
 
+### Estilos
+
+Las plantillas de estilos globales se encuentran en el directorio `src/assets/styles`, donde se encuentran los archivos:
+
+```
+variables.css 	=> Variables globales para los colores de la página
+main.css 	=> Archivo para el css global de la página
+animations.css 	=> Archivo para las animaciones css
+```
 
 ## Recommended IDE Setup
 
