@@ -34,7 +34,7 @@
   "sobre_mi": {
     "id": "about-me",
     "titulo": "Sobre Mi",
-    "imagen": "./imgs/profile.jpg",
+    "imagen": "./imgs/profile.png",
     "perfil_link": "https://www.linkedin.com/in/felipevogtf/",
     "parrafos": [
       "¡Hola! Mi nombre es Felipe y soy un programador full stack con experiencia en el desarrollo de aplicaciones web integrales y dinámicas. Mis habilidades me permiten trabajar tanto en el lado del cliente como en el lado del servidor, lo que me permite ofrecer soluciones completas y personalizadas para satisfacer las necesidades específicas de mis clientes.",
