@@ -116,9 +116,8 @@ export default {
       box-shadow: 5px 5px 10px rgb(0 0 0 / 15%);
 
       img {
-        width: 100%;
-        height: 300px;
-        width: 300px;
+        height: 400px;
+        width: 400px;
         object-fit: cover;
         opacity: 0.7;
         transform: scale(1.1);
