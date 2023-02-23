@@ -170,7 +170,7 @@
       },
       {
         "titulo": "Simple Weather App",
-        "descripcion": "Aplicación simple para ver el clima con geolocalización.",
+        "descripcion": "Una aplicación sencilla para visualizar el clima en tu ubicación actual mediante la tecnología de geolocalización, todo ello gracias a la API de Weatherapi.",
         "tecnologias": ["Ionic", "Angular"],
         "git_link": "https://github.com/felipevogtf/Simple-Weather-App",
         "demo_link": "https://felipevogtf.github.io/Simple-Weather-App/"
