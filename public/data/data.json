@@ -167,6 +167,13 @@
         "tecnologias": ["Ionic", "Angular"],
         "git_link": "https://github.com/felipevogtf/Wololo-Stats",
         "demo_link": ""
+      },
+      {
+        "titulo": "Simple Weather App",
+        "descripcion": "Aplicación simple para ver el clima con geolocalización.",
+        "tecnologias": ["Ionic", "Angular"],
+        "git_link": "https://github.com/felipevogtf/Simple-Weather-App",
+        "demo_link": "https://felipevogtf.github.io/Simple-Weather-App/"
       }
     ]
   },
