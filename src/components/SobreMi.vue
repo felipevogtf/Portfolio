@@ -55,11 +55,7 @@ export default {
         </p>
 
         <div class="contenido-tecnologias">
-          <div
-            class="chips-icon"
-            v-for="(item, index) in data.tecnologias"
-            :key="index"
-          >
+          <div class="chips-icon" v-for="(item, index) in data.tecnologias" :key="index">
             <img class="chips-icon-svg" :src="item.icono" :alt="item.nombre" />
             <span class="chips-icon-name">{{ item.nombre }}</span>
           </div>
@@ -67,12 +63,7 @@ export default {
       </div>
 
       <div class="contenido-imagen">
-        <a
-          class="img-wrapper"
-          :href="data.perfil_link"
-          rel="noopener noreferrer"
-          target="_blank"
-        >
+        <a class="img-wrapper" :href="data.perfil_link" rel="noopener noreferrer" target="_blank">
           <img :src="data.imagen" :alt="data.titulo" />
         </a>
       </div>
@@ -85,13 +76,13 @@ export default {
   .contenido {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
     row-gap: 20px;
   }
 
   .parrafo {
     margin-bottom: 20px;
   }
+
   .contenido-tecnologias {
     display: flex;
     align-items: center;
@@ -116,8 +107,8 @@ export default {
       box-shadow: 5px 5px 10px rgb(0 0 0 / 15%);
 
       img {
-        height: 400px;
-        width: 400px;
+        max-height: 300px;
+        width: 100%;
         object-fit: cover;
         opacity: 0.7;
         transform: scale(1.1);
@@ -129,6 +120,7 @@ export default {
     .img-wrapper:hover {
       cursor: pointer;
       background: none;
+
       img {
         opacity: 1;
         filter: grayscale(10%);
@@ -141,12 +133,21 @@ export default {
   .sobre-mi {
     .contenido {
       flex-direction: row;
+
       .contenido-descripcion {
         width: 50%;
       }
 
       .contenido-imagen {
         width: calc(50% - 20px);
+
+        .img-wrapper {
+          img {
+            height: 400px;
+            max-height: 400px;
+            width: 400px;
+          }
+        }
       }
     }
   }
