@@ -62,7 +62,7 @@ export default {
       tabindex="0"
     >
       <router-link to="/" class="logo">
-        <img :src="data.logo" alt="logo" />
+        <object class="logo-img" :data="data.logo" type="image/svg+xml" alt="logo"></object>
       </router-link>
 
       <div
@@ -133,7 +133,7 @@ export default {
   display: flex;
   align-items: center;
 
-  img {
+  .logo-img {
     height: 40px;
   }
 }
