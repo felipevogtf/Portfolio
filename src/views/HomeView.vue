@@ -40,13 +40,14 @@ export default {
     <nav role="navigation">
       <Navbar :data="data.navbar"></Navbar>
     </nav>
-    <section
-      class="main-background"
-      role="region"
-      :aria-labelledby="data.inicio.id"
-    >
+
+    <div class="glow"></div>
+
+    <section role="region" :aria-labelledby="data.inicio.id">
       <Presentacion :id="data.inicio.id" :data="data.inicio" />
     </section>
+
+    <div class="glow glow-right"></div>
     <section role="region" :aria-labelledby="data.sobre_mi.id">
       <SobreMi
         :id="data.sobre_mi.id"
@@ -101,6 +102,20 @@ export default {
 </template>
 
 <style lang="scss">
+.glow {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  box-shadow: 0 0 120px 60px var(--tertiary-glow),
+    0 120px 200px 120px var(--secondary-glow), 120px 0 280px 180px var(--primary-glow);
+  z-index: -1;
+  align-self: flex-start;
+}
+
+.glow-right {
+  right: 0;
+}
+
 .load-full-page {
   width: 100vw;
   height: 100vh;

@@ -6,11 +6,21 @@
     src: url("./../fonts/CascadiaCode.ttf");
 }
 
+@font-face {
+    font-family: LatoBlack;
+    src: url("./../fonts/Lato-Black.ttf");
+}
+
+@font-face {
+    font-family: LatoRegular;
+    src: url("./../fonts/Lato-Regular.ttf");
+}
+
 /* configs */
 html,
 body {
     margin: 0;
-    color: var(--base-text-color);
+    color: var(--text);
     font-size: 16px;
 
 }
@@ -40,8 +50,8 @@ html {
 }
 
 body {
-    font-family: CascadiaCode;
-    background-color: var(--background-color);
+    font-family: LatoRegular;
+    background-color: var(--background);
 }
 
 a:link {
@@ -64,8 +74,8 @@ a:hover {
 
 
 h1 {
-    font-weight: normal;
-    font-size: clamp(3.1rem, 8vw, 5rem);
+    font-family: 'LatoBlack';
+    font-size: clamp(3rem, 8vw, 10rem);
 }
 
 h2 {
@@ -187,10 +197,6 @@ ul {
     background: rgba(0, 227, 162, 0.1);
 }
 
-.titulo {
-    margin-bottom: 20px;
-}
-
 .text-link-secondary {
     color: rgba(33, 34, 36, 0.6);
     transition: color 200ms;
@@ -198,4 +204,13 @@ ul {
 
 .text-link-secondary:hover {
     color: var(--primary-text-color-dark);
+}
+
+.gradient-text {
+    background: linear-gradient(to right,
+            var(--primary),
+            var(--secondary),
+            var(--tertiary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

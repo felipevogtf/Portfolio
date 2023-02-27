@@ -27,6 +27,7 @@
   },
   "inicio": {
     "id": "home",
+    "presentacion": "Hola, soy",
     "titulo": "Felipe Vogt",
     "subtitulo": "Desarrollador Full-Stack",
     "descripcion": "Soy un ingeniero de software especializado en construir aplicaciones altamente escalables y con un alto rendimiento."

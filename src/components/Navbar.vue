@@ -100,7 +100,6 @@ export default {
 
 <style lang="scss">
 .nav {
-  background: var(--base-color);
 }
 .nav-menu {
   color: var(--base-dark-text-color);

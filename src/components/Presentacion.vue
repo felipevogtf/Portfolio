@@ -13,24 +13,68 @@ export default {
   },
   data() {
     return {
-      subtitulo: "",
-      text: "",
-      index: 0,
+      typingData: {
+        presentacion: {
+          text: "",
+          index: 0,
+          time: 50,
+        },
+        subtitulo: {
+          text: "",
+          index: 0,
+          time: 20,
+        },
+        titulo: {
+          text: "",
+          index: 0,
+          time: 50,
+        },
+        descripcion: {
+          text: "",
+          index: 0,
+          time: 5,
+        },
+        pIndex: 0,
+        sIndex: 0,
+        tIndex: 0,
+        dIndex: 0,
+      },
       visibleCounter: false,
     };
   },
-  created() {
-    this.subtitulo = this.data.subtitulo;
-  },
+  created() {},
   mounted() {
-    setTimeout(this.typing, 400);
+    setTimeout(this.typing, 300);
   },
   methods: {
     typing() {
-      if (this.index < this.subtitulo.length) {
-        this.text += this.subtitulo.charAt(this.index);
-        this.index++;
-        setTimeout(this.typing, 50);
+      let text: any = {};
+      let initialData = "";
+
+      if (
+        this.typingData.presentacion.index !== this.data.presentacion.length
+      ) {
+        text = this.typingData.presentacion;
+        initialData = this.data.presentacion;
+      } else if (this.typingData.titulo.index !== this.data.titulo.length) {
+        text = this.typingData.titulo;
+        initialData = this.data.titulo;
+      } else if (
+        this.typingData.subtitulo.index !== this.data.subtitulo.length
+      ) {
+        text = this.typingData.subtitulo;
+        initialData = this.data.subtitulo;
+      } else if (
+        this.typingData.descripcion.index !== this.data.descripcion.length
+      ) {
+        text = this.typingData.descripcion;
+        initialData = this.data.descripcion;
+      }
+
+      if (text.index !== initialData.length) {
+        text.text += initialData.charAt(text.index);
+        text.index++;
+        setTimeout(this.typing, text.time);
       }
     },
     setVisible() {
@@ -61,31 +105,49 @@ export default {
 
 <template>
   <div class="presentacion" ref="target">
-    <h1
-      class="presentacion-titulo"
-      :class="fadeClass"
-      style="animation-delay: 200ms"
-    >
-      {{ data.titulo }}
-    </h1>
-    <h2
-      class="presentacion-sub-titulo"
-      :class="fadeClass"
-      style="animation-delay: 300ms"
-    >
-      {{ text }}
+    <h2 class="sup-titulo">
+      {{ typingData.presentacion.text }}
 
       <span
         class="blink"
-        v-bind:class="text.length === subtitulo.length ? 'blink-animation' : ''"
+        v-if="
+          typingData.presentacion.text.length !== data.presentacion.length &&
+          typingData.presentacion.text.length !== 0
+        "
       ></span>
     </h2>
-    <p
-      class="presentacion-descripcion"
-      :class="fadeClass"
-      style="animation-delay: 400ms"
-    >
-      {{ data.descripcion }}
+    <h1 class="titulo">
+      {{ typingData.titulo.text }}
+
+      <span
+        class="blink"
+        v-if="
+          typingData.titulo.text.length !== data.titulo.length &&
+          typingData.titulo.text.length !== 0
+        "
+      ></span>
+    </h1>
+    <h2 class="sub-titulo gradient-text">
+      {{ typingData.subtitulo.text }}
+
+      <span
+        class="blink"
+        v-if="
+          typingData.subtitulo.text.length !== data.subtitulo.length &&
+          typingData.subtitulo.text.length !== 0
+        "
+      ></span>
+    </h2>
+    <p class="descripcion">
+      {{ typingData.descripcion.text }}
+
+      <span
+        class="blink"
+        v-if="
+          typingData.descripcion.text.length !== data.descripcion.length &&
+          typingData.descripcion.text.length !== 0
+        "
+      ></span>
     </p>
   </div>
 </template>
@@ -96,20 +158,21 @@ export default {
   min-height: 100vh;
   overflow-wrap: break-word;
 
-  .presentacion-sub-titulo {
-    color: var(--primary-text-color);
-    margin-top: 5px;
+  .sup-titulo {
+    font-weight: bold;
+  }
+
+  .sub-titulo {
+    font-family: "LatoBlack";
+    font-size: clamp(1.5rem, 8vw, 6rem);
   }
 
   .blink {
-    border-right: 20px solid;
+    border-right: 0.15rem solid;
   }
 
-  .blink-animation {
-    animation: blinking 1s infinite;
-  }
-
-  .presentacion-descripcion {
+  .descripcion {
+    color: var(--text-opacity);
     margin-top: 20px;
     width: 100%;
   }
@@ -117,7 +180,7 @@ export default {
 
 @media screen and (min-width: 992px) {
   .presentacion {
-    .presentacion-descripcion {
+    .descripcion {
       width: 50%;
     }
   }
