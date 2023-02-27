@@ -54,7 +54,11 @@ export default {
 
 <template>
   <div class="experiencia" ref="target">
-    <h2 class="titulo" :class="fadeClass" style="animation-delay: 200ms">
+    <h2
+      class="section-titulo"
+      :class="fadeClass"
+      style="animation-delay: 200ms"
+    >
       {{ data.titulo }}
     </h2>
 
@@ -116,11 +120,16 @@ export default {
   }
 
   .contenido-detalle {
+    h3 {
+      font-weight: bold;
+    }
     h4 {
       margin-top: 5px;
+      color: white;
     }
     .contenido-descripcion {
       margin-top: 10px;
+      color: var(--text-opacity);
 
       ul {
         padding-left: 20px;
@@ -145,10 +154,10 @@ export default {
       background: none;
       padding: 10px;
       border-style: solid;
-      border-color: rgba(0, 0, 0, 0.1);
-      color: var(--base-text-color);
+      border-color: rgba(255, 255, 255  , 0.1);
+      color: var(--text);
       border-width: 0px 0px 2px 0px;
-      font-size: 1rem;
+      font-size: 1.2rem;
       font-family: inherit;
       transition: background 200ms, color 200ms, border-color 300ms;
     }
@@ -156,7 +165,7 @@ export default {
     button:hover {
       cursor: pointer;
       color: var(--primary-text-color-dark);
-      background: var(--background-color-dark);
+      background: rgba(255, 255, 255  , 0.1);
     }
 
     .active {

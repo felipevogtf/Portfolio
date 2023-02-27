@@ -45,7 +45,11 @@ export default {
 
 <template>
   <div class="contacto" ref="target">
-    <h2 class="titulo" :class="fadeClass" style="animation-delay: 200ms">
+    <h2
+      class="section-titulo"
+      :class="fadeClass"
+      style="animation-delay: 200ms"
+    >
       {{ data.titulo }}
     </h2>
     <p class="contenido" :class="fadeClass" style="animation-delay: 250ms">
@@ -73,6 +77,7 @@ export default {
   align-items: center;
   .contenido {
     text-align: center;
+    color: var(--text-opacity);
   }
 
   .contacto-button {

@@ -56,7 +56,11 @@ export default {
 
 <template>
   <div class="proyectos" ref="target">
-    <h2 class="titulo" :class="fadeClass" style="animation-delay: 200ms">
+    <h2
+      class="section-titulo"
+      :class="fadeClass"
+      style="animation-delay: 200ms"
+    >
       {{ data.titulo }}
     </h2>
 
@@ -83,10 +87,6 @@ export default {
           class="proyecto-card"
           :class="index % 2 === 0 ? 'position-left' : 'position-right'"
         >
-          <h3 class="text-accent">{{ item.titulo }}</h3>
-          <p class="proyecto-descripcion">
-            {{ item.descripcion }}
-          </p>
           <div class="chips">
             <span
               class="chip-span"
@@ -96,6 +96,10 @@ export default {
               {{ tecnologia }}
             </span>
           </div>
+          <h3 class="text-accent">{{ item.titulo }}</h3>
+          <p class="proyecto-descripcion">
+            {{ item.descripcion }}
+          </p>
 
           <div class="botonera">
             <a
@@ -138,6 +142,12 @@ export default {
     align-items: center;
     justify-content: center;
 
+    h3 {
+      margin-top: 20px;
+      font-family: LatoBlack;
+      color: var(--text);
+    }
+
     .proyecto-card {
       display: flex;
       flex-direction: column;
@@ -155,6 +165,7 @@ export default {
 
     .proyecto-descripcion {
       margin-top: 10px;
+      color: var(--text-opacity);
     }
 
     .botonera {

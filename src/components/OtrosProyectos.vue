@@ -70,28 +70,44 @@ export default {
 
 <template>
   <div class="otros-proyectos" ref="target" :class="fadeClass">
-    <h2 class="titulo" style="animation-delay: 200ms">
+    <!-- Inicio. Titulo -->
+    <h2 class="section-titulo" style="animation-delay: 200ms">
       {{ data.titulo }}
     </h2>
+    <!-- Fin. Titulo -->
 
     <div class="contenido" :class="fadeClass" style="animation-delay: 300ms">
       <TransitionGroup name="slide-up">
         <a
-          class="card"
+          class="wrap-card"
           v-for="(item, index) in proyectos"
           :href="getLink(item)"
           rel="noopener noreferrer"
           target="_blank"
           v-bind:key="index"
         >
-          <div class="card-header">
-            <h2 class="text-accent">
-              <i class="fa-solid fa-code"></i>
-            </h2>
+          <div class="card">
+            <!-- Inicio. Chips -->
+            <div class="chips">
+              <span
+                class="chip-span"
+                v-for="(tecnologia, index) in item.tecnologias"
+                :key="index"
+              >
+                {{ tecnologia }}
+              </span>
+            </div>
+            <!-- Fin. Chips -->
 
+            <!-- Inicio. Texto  -->
+            <h3 class="card-titulo">{{ item.titulo }}</h3>
+            <p class="card-descripcion">{{ item.descripcion }}</p>
+            <!-- Fin. Texto -->
+
+            <!-- Inicio. Botones -->
             <div class="card-opciones">
               <a
-                class="icon-button text-h3"
+                class="icon-button"
                 v-if="item.git_link"
                 :href="item.git_link"
                 rel="noopener noreferrer"
@@ -100,7 +116,7 @@ export default {
                 <i class="fa-brands fa-github"></i>
               </a>
               <a
-                class="icon-button text-h3"
+                class="icon-button"
                 v-if="item.demo_link"
                 :href="item.demo_link"
                 rel="noopener noreferrer"
@@ -109,17 +125,7 @@ export default {
                 <i class="fa-solid fa-arrow-up-right-from-square"></i>
               </a>
             </div>
-          </div>
-          <h3 class="card-titulo text-accent">{{ item.titulo }}</h3>
-          <p class="card-descripcion">{{ item.descripcion }}</p>
-          <div class="chips">
-            <span
-              class="chip-span"
-              v-for="(tecnologia, index) in item.tecnologias"
-              :key="index"
-            >
-              {{ tecnologia }}
-            </span>
+            <!-- Fin. Botones -->
           </div>
         </a>
       </TransitionGroup>
@@ -143,29 +149,36 @@ export default {
     gap: 16px;
     width: 100%;
 
+    .wrap-card {
+      display: flex;
+      background: linear-gradient(
+        to right top,
+        var(--primary),
+        var(--secondary) 50%,
+        var(--tertiary) 100%
+      );
+      padding: 3px;
+      border-radius: 5px;
+      transition: transform 200ms, box-shadow 200ms;
+    }
+
     .card {
       display: flex;
       flex-direction: column;
-      .card-header {
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-      }
 
       .card-opciones {
+        margin-top: auto;
         display: flex;
         flex-direction: row;
         column-gap: 15px;
-
-        .icon-button {
-          font-size: 1.5rem;
-        }
+        justify-content: flex-end;
       }
 
       .card-titulo {
         margin-top: 20px;
         padding-bottom: 20px;
+        color: var(--text);
+        font-family: LatoBlack;
       }
 
       .card-descripcion {
@@ -173,14 +186,11 @@ export default {
       }
 
       padding: 20px;
-      background: rgba(0, 0, 0, 0.7);
+      background: var(--background);
       border-radius: 5px;
-      box-shadow: 5px 5px 10px rgb(0 0 0 / 15%);
-      color: var(--base-dark-text-color);
-      transition: transform 200ms, box-shadow 200ms;
     }
 
-    .card:hover {
+    .wrap-card:hover {
       cursor: pointer;
       box-shadow: 5px 12px 10px rgb(0 0 0 / 30%);
       transform: translateY(-10px);

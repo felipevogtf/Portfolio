@@ -34,7 +34,7 @@
   },
   "sobre_mi": {
     "id": "about-me",
-    "titulo": "Sobre Mi",
+    "titulo": "Algo sobre Mi",
     "imagen": "./imgs/profile.jpg",
     "perfil_link": "https://www.linkedin.com/in/felipevogtf/",
     "parrafos": [
@@ -90,7 +90,7 @@
   },
   "experiencia": {
     "id": "experience",
-    "titulo": "Experiencia",
+    "titulo": "Dónde he trabajado",
     "experiencias": [
       {
         "empresa": "BCN School",
@@ -130,7 +130,7 @@
   },
   "proyectos": {
     "id": "projects",
-    "titulo": "Proyectos",
+    "titulo": "Algunos proyectos destacados",
     "proyectos": [
       {
         "titulo": "Buscaminas",

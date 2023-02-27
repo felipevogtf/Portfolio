@@ -45,7 +45,11 @@ export default {
 
 <template>
   <div class="sobre-mi" ref="target">
-    <h2 class="titulo" :class="fadeClass" style="animation-delay: 200ms">
+    <h2
+      class="section-titulo"
+      :class="fadeClass"
+      style="animation-delay: 200ms"
+    >
       {{ data.titulo }}
     </h2>
     <div class="contenido" :class="fadeClass" style="animation-delay: 300ms">
@@ -55,7 +59,11 @@ export default {
         </p>
 
         <div class="contenido-tecnologias">
-          <div class="chips-icon" v-for="(item, index) in data.tecnologias" :key="index">
+          <div
+            class="chips-icon"
+            v-for="(item, index) in data.tecnologias"
+            :key="index"
+          >
             <img class="chips-icon-svg" :src="item.icono" :alt="item.nombre" />
             <span class="chips-icon-name">{{ item.nombre }}</span>
           </div>
@@ -63,7 +71,12 @@ export default {
       </div>
 
       <div class="contenido-imagen">
-        <a class="img-wrapper" :href="data.perfil_link" rel="noopener noreferrer" target="_blank">
+        <a
+          class="img-wrapper"
+          :href="data.perfil_link"
+          rel="noopener noreferrer"
+          target="_blank"
+        >
           <img :src="data.imagen" :alt="data.titulo" />
         </a>
       </div>
@@ -77,6 +90,10 @@ export default {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
+  }
+
+  .contenido-descripcion {
+    color: var(--text-opacity);
   }
 
   .parrafo {
@@ -99,12 +116,11 @@ export default {
 
     .img-wrapper {
       height: fit-content;
-
-      background: #279d7b;
       overflow: hidden;
       border-radius: 50%;
-      transition: background 400ms;
-      box-shadow: 5px 5px 10px rgb(0 0 0 / 15%);
+      transition: background 400ms, box-shadow 500ms;
+      box-shadow: 10px 10px 30px var(--primary-glow),
+        -10px -10px 30px var(--secondary-glow);
 
       img {
         max-height: 300px;
@@ -120,6 +136,8 @@ export default {
     .img-wrapper:hover {
       cursor: pointer;
       background: none;
+      box-shadow: 10px 10px 30px var(--secondary-glow),
+        -10px -10px 30px var(--primary-glow);
 
       img {
         opacity: 1;

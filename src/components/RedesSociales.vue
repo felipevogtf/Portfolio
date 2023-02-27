@@ -36,7 +36,7 @@ export default {
   margin-bottom: 20px;
 
   .social-button {
-    color: var(--base-text-color);
+    color: var(--text);
     transition: color 200ms;
     font-size: 1.5rem;
   }
@@ -49,9 +49,8 @@ export default {
 
 @media screen and (min-width: 992px) {
   .social {
-    mix-blend-mode: difference;
     position: fixed;
-    color: var(--base-dark-text-color);
+    color: var(--text);
     display: flex;
     flex-direction: column;
     row-gap: 20px;

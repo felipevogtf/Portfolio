@@ -79,29 +79,31 @@ h1 {
 }
 
 h2 {
-    font-size: 2rem;
+    font-size: 3rem;
 }
 
 h3 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
 
 h4 {
-    font-size: 1rem;
-    opacity: 0.85;
+    font-size: 1.2rem;
     padding: 3px 0px;
+    color: var(--text-opacity);
 }
 
 p {
     line-height: 1.5;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    color: var(--text-opacity);
 }
 
 
 
 ul {
     line-height: 1.5;
-    font-size: 1rem;
+    font-size: 1.2rem;
+    color: var(--text-opacity);
 }
 
 .text-link {
@@ -139,23 +141,22 @@ ul {
 
 
 .chips {
-    margin-top: auto;
     display: flex;
     flex-direction: row;
     justify-content: left;
     column-gap: 20px;
     flex-wrap: wrap;
-    color: rgba(255, 255, 255, 0.678);
+    color: var(--primary);
 }
 
 .chips-icon {
     display: flex;
     flex-direction: row;
-    background: rgba(0, 227, 162, 0.9);
     color: white;
     border-radius: 5px;
     padding: 5px 10px;
     align-items: center;
+
 }
 
 .chip-span {
@@ -164,17 +165,19 @@ ul {
 
 .chips-icon-svg {
     width: 25px;
-    filter: brightness(0) invert(1);
+    filter: brightness(0) invert(.5);
 }
 
 .chips-icon-name {
     padding-left: 5px;
     font-size: 1rem;
+    color: var(--text-opacity);
 }
 
 .icon-button {
     color: white;
     transition: color 200ms;
+    font-size: 1.5rem;
 }
 
 .icon-button:hover {
@@ -198,7 +201,7 @@ ul {
 }
 
 .text-link-secondary {
-    color: rgba(33, 34, 36, 0.6);
+    color: var(--text-opacity);
     transition: color 200ms;
 }
 
@@ -213,4 +216,17 @@ ul {
             var(--tertiary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-mono {
+    background: linear-gradient(to right,
+            var(--primary-dark),
+            var(--primary-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.section-titulo {
+    margin-bottom: 20px;
+    font-weight: bold;
 }

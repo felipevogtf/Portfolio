@@ -62,6 +62,7 @@ export default {
         class="section-margin"
       />
     </section>
+    <div class="glow"></div>
     <section role="region" :aria-labelledby="data.proyectos.id">
       <Proyectos
         :id="data.proyectos.id"
@@ -76,6 +77,7 @@ export default {
         class="section-margin"
       />
     </section>
+    <div class="glow glow-right"></div>
     <section role="region" :aria-labelledby="data.contacto.id">
       <Contacto
         ref="test"
@@ -107,7 +109,8 @@ export default {
   width: 0px;
   height: 0px;
   box-shadow: 0 0 120px 60px var(--tertiary-glow),
-    0 120px 200px 120px var(--secondary-glow), 120px 0 280px 180px var(--primary-glow);
+    0 120px 200px 120px var(--secondary-glow),
+    120px 0 280px 180px var(--primary-glow);
   z-index: -1;
   align-self: flex-start;
 }
