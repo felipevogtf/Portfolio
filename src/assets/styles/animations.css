@@ -88,3 +88,24 @@
         opacity: 1;
     }
 }
+
+/* Standard syntax */
+@keyframes shadow-animation {
+    0% {
+        box-shadow: -15px 15px 15px -15px var(--primary-glow),
+            15px -15px 15px -15px var(--tertiary-glow),
+            0px 0px 15px 0px var(--secondary-glow);
+    }
+
+    50% {
+        box-shadow: -15px 15px 30px -15px var(--primary-glow),
+            15px -15px 30px -15px var(--tertiary-glow),
+            0px 0px 30px 0px var(--secondary-glow);
+    }
+
+    100% {
+        box-shadow: -15px 15px 15px -15px var(--primary-glow),
+            15px -15px 15px -15px var(--tertiary-glow),
+            0px 0px 15px 0px var(--secondary-glow);
+    }
+}

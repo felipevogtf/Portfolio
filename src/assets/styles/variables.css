@@ -1,14 +1,4 @@
 :root {
-    --base-color: #212224;
-    --base-color-dark: #2c2c2c;
-    --primary-text-color: #80ffdb;
-    --primary-text-color-dark: #00e3a2;
-    --primary-text-color-darken: #02c990;
-    --background-color: #fffafa;
-    --background-color-dark: #f0f0f0;
-    --base-text-color: #2e2f31;
-    --base-dark-text-color: white;
-
     /* Colors */
     --primary: #06d6a0;
     --primary-light: #80ffdb;
@@ -21,6 +11,7 @@
     --background-light: #2b2b2b;
     --text: white;
     --text-opacity: rgba(255, 255, 255, .6);
+    --background-opacity: rgb(29, 29, 29, .6);
 
     /* Glow variables */
     --primary-glow: rgba(6, 214, 160, .5);
@@ -36,5 +27,20 @@
     /* Shadows */
     --box-shadows: 5px 5px 10px rgb(0 0 0 / 15%);
     --box-shadows-2: 5px 12px 10px rgb(0 0 0 / 30%);
+    /*  */
+
+    /* Fonts size */
+    --default-size: 16px;
+    --mobile-size: 14px;
+
+    --font-super-xxl: 10rem;
+    --font-super-xl: 6rem;
+    --font-xxxxl: 3rem;
+    --font-xxxl: 1.8rem;
+    --font-xxl: 1.5rem;
+    --font-xl: 1.2rem;
+    --font-l: 1.1rem;
+    --font-m: 1rem;
+    --blink-size: 0.15rem;
     /*  */
 }
