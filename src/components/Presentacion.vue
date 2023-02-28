@@ -1,7 +1,5 @@
 <script lang="ts">
 import type { InicioData } from "@/models/inicio-data.model";
-import { useElementVisibility } from "@vueuse/core";
-import { ref } from "vue";
 
 export default {
   name: "PresentacionComponent",
@@ -34,10 +32,6 @@ export default {
           index: 0,
           time: 5,
         },
-        pIndex: 0,
-        sIndex: 0,
-        tIndex: 0,
-        dIndex: 0,
       },
       visibleCounter: false,
     };
@@ -47,7 +41,7 @@ export default {
     setTimeout(this.typing, 300);
   },
   methods: {
-    typing() {
+    typing(): void {
       let text: any = {};
       let initialData = "";
 
@@ -77,86 +71,63 @@ export default {
         setTimeout(this.typing, text.time);
       }
     },
-    setVisible() {
+    setVisible(): void {
       this.visibleCounter = true;
     },
-  },
-  setup() {
-    const target = ref(null);
-    const targetIsVisible = useElementVisibility(target);
-
-    return {
-      target,
-      targetIsVisible,
-    };
-  },
-  computed: {
-    fadeClass() {
-      if (this.targetIsVisible && !this.visibleCounter) {
-        this.setVisible();
-        return "fade-in fade-in-animation";
-      } else {
-        return "";
-      }
+    checkTypingEnd(text: any, initialText: any): boolean {
+      return text.length !== initialText.length && text.length !== 0;
     },
   },
 };
 </script>
 
 <template>
-  <div class="presentacion" ref="target">
+  <div class="presentacion">
+    <!-- Inicio. Presentacion -->
     <h2 class="sup-titulo">
       {{ typingData.presentacion.text }}
-
       <span
         class="blink"
-        v-if="
-          typingData.presentacion.text.length !== data.presentacion.length &&
-          typingData.presentacion.text.length !== 0
-        "
+        v-if="checkTypingEnd(typingData.presentacion.text, data.presentacion)"
       ></span>
     </h2>
+    <!-- Inicio. Presentacion -->
+
+    <!-- Fin. Titulo -->
     <h1 class="titulo">
       {{ typingData.titulo.text }}
-
       <span
         class="blink"
-        v-if="
-          typingData.titulo.text.length !== data.titulo.length &&
-          typingData.titulo.text.length !== 0
-        "
+        v-if="checkTypingEnd(typingData.titulo.text, data.titulo)"
       ></span>
     </h1>
+    <!-- Fin. Titulo -->
+
+    <!-- Inicio. Subtitulo -->
     <h2 class="sub-titulo gradient-text">
       {{ typingData.subtitulo.text }}
-
       <span
         class="blink"
-        v-if="
-          typingData.subtitulo.text.length !== data.subtitulo.length &&
-          typingData.subtitulo.text.length !== 0
-        "
+        v-if="checkTypingEnd(typingData.subtitulo.text, data.subtitulo)"
       ></span>
     </h2>
+    <!-- Fin. Subtitulo -->
+
+    <!-- Inicio. Descripcion -->
     <p class="descripcion">
       {{ typingData.descripcion.text }}
-
       <span
         class="blink"
-        v-if="
-          typingData.descripcion.text.length !== data.descripcion.length &&
-          typingData.descripcion.text.length !== 0
-        "
+        v-if="checkTypingEnd(typingData.descripcion.text, data.descripcion)"
       ></span>
     </p>
+    <!-- Fin. Descripcion -->
   </div>
 </template>
 
 <style lang="scss">
 .presentacion {
-  color: var(--base-dark-text-color);
   min-height: 100vh;
-  overflow-wrap: break-word;
 
   .sup-titulo {
     font-weight: bold;
@@ -172,7 +143,6 @@ export default {
   }
 
   .descripcion {
-    color: var(--text-opacity);
     margin-top: 20px;
     width: 100%;
   }
