@@ -163,7 +163,7 @@ export default {
       border-color: var(--tabs-border);
       color: var(--text);
       border-width: 0px 0px 2px 0px;
-      font-size: 1.2rem;
+      font-size: var(--font-xl);
       font-family: inherit;
       transition: background 200ms, color 200ms, border-color 300ms;
     }

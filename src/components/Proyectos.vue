@@ -155,7 +155,7 @@ export default {
     .proyecto-card {
       display: flex;
       flex-direction: column;
-      color: var(--base-dark-text-color);
+      color: var(--text);
       padding: 50px;
 
       border-radius: 5px;
@@ -180,7 +180,7 @@ export default {
       column-gap: 20px;
 
       .icon-button {
-        font-size: 1.5rem;
+        font-size: var(--font-xxl);
       }
     }
   }

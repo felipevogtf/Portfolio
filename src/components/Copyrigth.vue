@@ -22,6 +22,6 @@ export default {
 .copyrigth {
   padding-bottom: 20px;
   align-items: center;
-  font-size: 1rem;
+  font-size: var(--font-m);
 }
 </style>

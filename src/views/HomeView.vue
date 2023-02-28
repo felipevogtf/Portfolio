@@ -93,7 +93,7 @@ export default {
     <RedesSociales :id="data.redes.id" :data="data.redes"></RedesSociales>
   </main>
 
-  <div class="main-background load-full-page" v-else>
+  <div class="load-full-page" v-else>
     <div class="lds-ellipsis">
       <div></div>
       <div></div>
@@ -140,7 +140,7 @@ export default {
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background: var(--base-dark-text-color);
+  background: var(--text);
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 .lds-ellipsis div:nth-child(1) {
@@ -182,11 +182,6 @@ export default {
   100% {
     transform: translate(24px, 0);
   }
-}
-
-.main-background {
-  background-color: var(--base-color);
-  background-blend-mode: multiply;
 }
 
 // .main-background::before {

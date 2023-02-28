@@ -68,7 +68,7 @@ export default {
       style="animation-delay: 300ms"
     >
       <a
-        class="outline-button"
+        class="contact-button"
         v-bind:href="`mailto:${data.email}`"
         rel="noopener noreferrer"
         target="_blank"

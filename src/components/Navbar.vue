@@ -18,16 +18,22 @@ export default {
     };
   },
   methods: {
-    showMenu() {
+    showMenu(): void {
       this.showMobileMenu = !this.showMobileMenu;
     },
-    handleFocusOut() {
+    handleFocusOut(): void {
       setTimeout(() => {
         this.showMobileMenu = false;
       }, 100);
     },
-    setVisible() {
+    setVisible(): void {
       this.visibleCounter = true;
+    },
+    getOpenClass(): string {
+      return this.showMobileMenu ? "open-menu" : "closed-menu";
+    },
+    getShowMenuClass(): string {
+      return this.showMobileMenu ? "active-toggle" : "";
     },
   },
   setup() {
@@ -61,22 +67,25 @@ export default {
       @focusout="handleFocusOut"
       tabindex="0"
     >
+      <!-- Inicio. Logo -->
       <router-link to="/" class="logo">
-        <object class="logo-img" :data="data.logo" type="image/svg+xml" alt="logo"></object>
+        <img
+          class="logo-img"
+          :src="data.logo"
+          type="image/svg+xml"
+          alt="logo"
+        />
       </router-link>
+      <!-- Fin. Logo -->
 
-      <div
-        class="nav-toggle"
-        @click="showMenu()"
-        :class="showMobileMenu ? 'active-toggle' : ''"
-      >
+      <!-- Inicio. Toggle button -->
+      <div class="nav-toggle" @click="showMenu()" :class="getShowMenuClass()">
         <i class="fas fa-bars"> </i>
       </div>
+      <!-- Fin. Toggle button -->
 
-      <div
-        class="nav-content"
-        :class="showMobileMenu ? 'open-menu' : 'closed-menu'"
-      >
+      <!-- Inicio. Menus -->
+      <div class="nav-content" :class="getOpenClass()">
         <a
           class="nav-link"
           v-for="(item, index) in data.items"
@@ -86,23 +95,22 @@ export default {
         >
 
         <a
-          class="nav-button"
+          class="outline-button"
           rel="noopener noreferrer"
           target="_blank"
           :href="data.curriculum.link"
           v-if="data.curriculum.link"
-          >{{ data.curriculum.nombre }}</a
+          ><span>{{ data.curriculum.nombre }}</span></a
         >
       </div>
+      <!-- Fin. Menus -->
     </div>
   </div>
 </template>
 
 <style lang="scss">
-.nav {
-}
 .nav-menu {
-  color: var(--base-dark-text-color);
+  color: var(--text);
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -116,12 +124,12 @@ export default {
   column-gap: 20px;
   padding: 20px 0px;
   a.nav-link {
-    color: var(--base-dark-text-color);
+    color: var(--text);
     transition: color 200ms;
-    font-size: 1rem;
+    font-size: var(--font-l);
   }
   a.nav-link:hover {
-    color: var(--primary-text-color-dark);
+    color: var(--primary);
   }
 }
 .nav-toggle {
@@ -137,19 +145,9 @@ export default {
   }
 }
 
-.nav-button {
-  background: none;
-  color: var(--primary-text-color-dark);
+.outline-button span {
   padding: 10px 20px;
-  border: solid 2px;
-  font-size: 1rem;
-  border-radius: 5px;
-  transition: background 200ms;
-}
-
-.nav-button:hover {
-  cursor: pointer;
-  background: rgba(0, 227, 162, 0.1);
+  font-size: var(--font-l);
 }
 
 @media screen and (max-width: 992px) {
@@ -172,15 +170,15 @@ export default {
   }
   .nav-toggle:hover {
     cursor: pointer;
-    background: var(--base-color-dark);
+    background: var(--background-opacity);
   }
 
   .active-toggle {
-    background: var(--primary-text-color-dark);
+    background: var(--background-opacity);
   }
 
   .active-toggle:hover {
-    background: var(--primary-text-color-darken);
+    background: var(--background-opacity);
   }
 
   .open-menu {
@@ -193,38 +191,20 @@ export default {
     padding: 0;
   }
   .nav-content {
-    background: var(--primary-text-color-dark);
+    background: var(--background-opacity);
+    backdrop-filter: blur(20px);
     flex-direction: column;
     z-index: 100;
     position: relative;
     transition: all 0.2s ease-out;
     flex-basis: 100%;
-    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 10px 30px 20px 10px rgba(0, 0, 0, 0.75);
     a.nav-link {
-      color: var(--base-text-color);
+      color: var(--text);
     }
     a.nav-link:hover {
-      color: var(--base-dark-text-color);
+      color: var(--primary);
     }
-
-    .text-link {
-      color: var(--base-dark-text-color) !important;
-    }
-  }
-
-  .nav-button {
-    background: none;
-    color: var(--base-text-color);
-    padding: 10px 20px;
-    border: solid 2px;
-    font-size: 1rem;
-    border-radius: 5px;
-    transition: background 200ms;
-  }
-
-  .nav-button:hover {
-    cursor: pointer;
-    background: rgba(0, 0, 0, 0.1);
   }
 }
 </style>

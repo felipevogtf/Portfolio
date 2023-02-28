@@ -116,6 +116,7 @@ export default {
     display: flex;
     justify-content: center;
     flex-direction: row;
+    margin-top: 100px;
 
     .img-wrapper {
       height: fit-content;
@@ -160,6 +161,7 @@ export default {
       }
 
       .contenido-imagen {
+        margin-top: 0;
         width: calc(50% - 20px);
 
         .img-wrapper {

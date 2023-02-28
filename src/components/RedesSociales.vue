@@ -38,12 +38,12 @@ export default {
   .social-button {
     color: var(--text);
     transition: color 200ms;
-    font-size: 1.5rem;
+    font-size: var(--font-xxl);
   }
 
   .social-button:hover {
     cursor: pointer;
-    color: var(--primary-text-color-dark);
+    color: var(--primary);
   }
 }
 
@@ -59,11 +59,11 @@ export default {
 
     .social-button {
       transition: transform 200ms;
-      color: var(--base-dark-text-color);
+      color: var(--text);
     }
     .social-button:hover {
       cursor: pointer;
-      color: var(--base-dark-text-color);
+      color: var(--text);
       transform: scale(1.2);
     }
   }
@@ -75,7 +75,7 @@ export default {
     height: 90px;
     margin: 0px auto;
     margin-bottom: -20px;
-    background-color: var(--base-dark-text-color);
+    background-color: var(--text);
   }
 }
 </style>

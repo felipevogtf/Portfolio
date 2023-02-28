@@ -135,11 +135,11 @@ export default {
 
   .sub-titulo {
     font-family: "LatoBlack";
-    font-size: clamp(1.5rem, 8vw, 6rem);
+    font-size: clamp(var(--font-xxl), 8vw, var(--font-super-xl));
   }
 
   .blink {
-    border-right: 0.15rem solid;
+    border-right: var(--blink-size) solid;
   }
 
   .descripcion {
