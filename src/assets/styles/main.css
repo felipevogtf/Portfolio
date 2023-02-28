@@ -226,7 +226,7 @@ ul {
 }
 
 .text-link-secondary:hover {
-    color: var(--primary-text-color-dark);
+    color: var(--primary);
 }
 
 .gradient-text {

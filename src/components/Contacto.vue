@@ -45,6 +45,7 @@ export default {
 
 <template>
   <div class="contacto" ref="target">
+    <!-- Inicio. Titulo -->
     <h2
       class="section-titulo"
       :class="fadeClass"
@@ -52,9 +53,15 @@ export default {
     >
       {{ data.titulo }}
     </h2>
+    <!-- Fin. Titulo -->
+
+    <!-- Inicio. Texto -->
     <p class="contenido" :class="fadeClass" style="animation-delay: 250ms">
       {{ data.descripcion }}
     </p>
+    <!-- Fin. Texto -->
+
+    <!-- Inicio. Contacto button -->
     <div
       class="contacto-button"
       :class="fadeClass"
@@ -66,9 +73,10 @@ export default {
         rel="noopener noreferrer"
         target="_blank"
       >
-        {{ data.boton_contacto }}
+        <span>{{ data.boton_contacto }}</span>
       </a>
     </div>
+    <!-- Fin. Contacto button -->
   </div>
 </template>
 
@@ -77,7 +85,6 @@ export default {
   align-items: center;
   .contenido {
     text-align: center;
-    color: var(--text-opacity);
   }
 
   .contacto-button {
