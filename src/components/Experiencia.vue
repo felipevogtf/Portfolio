@@ -22,12 +22,18 @@ export default {
     this.navs = this.data.experiencias.map((obj) => obj.empresa_abrev);
   },
   methods: {
-    cambiarExperiencia(num: number) {
+    cambiarExperiencia(num: number): void {
       this.selected.splice(0, this.selected.length);
       this.selected.push(this.data.experiencias[num]);
     },
-    setVisible() {
+    setVisible(): void {
       this.visibleCounter = true;
+    },
+    getActiveClass(index: number): string {
+      return JSON.stringify(this.selected[0]) ===
+        JSON.stringify(this.data.experiencias[index])
+        ? "active"
+        : "";
     },
   },
   setup() {
@@ -54,6 +60,7 @@ export default {
 
 <template>
   <div class="experiencia" ref="target">
+    <!-- Inicio. titulo -->
     <h2
       class="section-titulo"
       :class="fadeClass"
@@ -61,24 +68,23 @@ export default {
     >
       {{ data.titulo }}
     </h2>
+    <!-- Fin. Titulo -->
 
     <div class="contenido" :class="fadeClass" style="animation-delay: 300ms">
+      <!-- Inicio. Botonera/Tabs -->
       <div class="botonera">
         <button
           v-for="(item, index) in navs"
           :key="item"
           v-on:click="cambiarExperiencia(index)"
-          :class="
-            JSON.stringify(selected[0]) ===
-            JSON.stringify(data.experiencias[index])
-              ? 'active'
-              : ''
-          "
+          :class="getActiveClass(index)"
         >
           {{ item }}
         </button>
       </div>
+      <!-- Fin. Botonera/Tabs -->
 
+      <!-- Inicio. Contenido -->
       <div class="contenido-box">
         <TransitionGroup name="slide-up">
           <div
@@ -107,6 +113,7 @@ export default {
           </div>
         </TransitionGroup>
       </div>
+      <!-- Fin. Contenido -->
     </div>
   </div>
 </template>
@@ -125,11 +132,10 @@ export default {
     }
     h4 {
       margin-top: 5px;
-      color: white;
+      color: var(--text);
     }
     .contenido-descripcion {
       margin-top: 10px;
-      color: var(--text-opacity);
 
       ul {
         padding-left: 20px;
@@ -154,7 +160,7 @@ export default {
       background: none;
       padding: 10px;
       border-style: solid;
-      border-color: rgba(255, 255, 255  , 0.1);
+      border-color: var(--tabs-border);
       color: var(--text);
       border-width: 0px 0px 2px 0px;
       font-size: 1.2rem;
@@ -164,13 +170,13 @@ export default {
 
     button:hover {
       cursor: pointer;
-      color: var(--primary-text-color-dark);
-      background: rgba(255, 255, 255  , 0.1);
+      color: var(--primary);
+      background: var(--tabs-hover);
     }
 
     .active {
-      border-color: var(--primary-text-color-dark);
-      color: var(--primary-text-color-dark);
+      border-color: var(--primary);
+      color: var(--primary);
     }
   }
 }
