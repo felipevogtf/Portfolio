@@ -182,7 +182,7 @@ ul {
 
 .icon-button:hover {
     cursor: pointer;
-    color: var(--primary-text);
+    color: var(--primary);
 }
 
 .outline-button {
