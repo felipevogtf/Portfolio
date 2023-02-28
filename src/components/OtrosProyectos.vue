@@ -32,10 +32,10 @@ export default {
 
       return link;
     },
-    setVisible() {
+    setVisible(): void {
       this.visibleCounter = true;
     },
-    mostrarMas() {
+    mostrarMas(): void {
       const min = this.proyectos.length;
       const max = min + 6;
 

@@ -186,18 +186,38 @@ ul {
 }
 
 .outline-button {
-    background: none;
-    color: var(--primary-text-color-dark);
-    padding: 15px 40px;
-    border: solid 2px;
-    font-size: 1rem;
+    display: flex;
+    background: linear-gradient(to right top,
+            var(--primary),
+            var(--secondary) 50%,
+            var(--tertiary) 100%);
+    color: var(--text);
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: none;
     border-radius: 5px;
     transition: background 200ms;
+    padding: 2px;
+    transition: 400ms;
+}
+
+.outline-button span {
+    padding: 15px 40px;
+    background: var(--background);
+    border-radius: 5px;
+    transition: 400ms;
 }
 
 .outline-button:hover {
     cursor: pointer;
-    background: rgba(0, 227, 162, 0.1);
+}
+
+.outline-button:active {
+    transform: scale(0.9);
+}
+
+.outline-button:hover span {
+    background: var(--background-light);
 }
 
 .text-link-secondary {
