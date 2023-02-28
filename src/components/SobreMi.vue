@@ -26,7 +26,7 @@ export default {
     };
   },
   methods: {
-    setVisible() {
+    setVisible(): void {
       this.visibleCounter = true;
     },
   },
@@ -45,6 +45,7 @@ export default {
 
 <template>
   <div class="sobre-mi" ref="target">
+    <!-- Inicio. Titulo -->
     <h2
       class="section-titulo"
       :class="fadeClass"
@@ -52,7 +53,10 @@ export default {
     >
       {{ data.titulo }}
     </h2>
+    <!-- Fin. Titulo -->
+
     <div class="contenido" :class="fadeClass" style="animation-delay: 300ms">
+      <!-- Inicio. Parrafos -->
       <div class="contenido-descripcion">
         <p v-for="(item, index) in data.parrafos" class="parrafo" :key="index">
           {{ item }}
@@ -69,7 +73,9 @@ export default {
           </div>
         </div>
       </div>
+      <!-- Fin. Parrafos -->
 
+      <!-- Inicio. Imagen -->
       <div class="contenido-imagen">
         <a
           class="img-wrapper"
@@ -80,6 +86,7 @@ export default {
           <img :src="data.imagen" :alt="data.titulo" />
         </a>
       </div>
+      <!-- Fin. Imagen -->
     </div>
   </div>
 </template>
@@ -90,10 +97,6 @@ export default {
     display: flex;
     flex-direction: column;
     row-gap: 20px;
-  }
-
-  .contenido-descripcion {
-    color: var(--text-opacity);
   }
 
   .parrafo {
