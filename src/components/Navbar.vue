@@ -72,7 +72,6 @@ export default {
         <img
           class="logo-img"
           :src="data.logo"
-          type="image/svg+xml"
           alt="logo"
         />
       </router-link>

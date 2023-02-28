@@ -145,6 +145,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     h3 {
       margin-top: 20px;
@@ -159,11 +160,11 @@ export default {
       padding: 50px;
 
       border-radius: 5px;
-      backdrop-filter: blur(5.2px);
+      backdrop-filter: blur(10px);
 
       background-position: center;
 
-      background: rgba(0, 0, 0, 0.7);
+      background: rgba(0, 0, 0, 0.8);
       box-shadow: var(--box-shadows);
     }
 
@@ -186,8 +187,10 @@ export default {
   }
 
   .img-wrapper {
-    visibility: hidden;
-    width: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+
     display: flex;
     overflow: hidden;
     border-radius: 5px;
@@ -225,11 +228,12 @@ export default {
     }
 
     .proyecto {
+      position: static;
       .proyecto-card {
-        width: 50%;
+        width: 60%;
         position: relative;
         padding: 20px;
-        background: rgba(0, 0, 0, 0.7) !important;
+        background: rgba(0, 0, 0, 0.8) !important;
         box-shadow: var(--box-shadows);
       }
     }
@@ -256,13 +260,9 @@ export default {
     }
 
     .img-wrapper {
-      visibility: visible;
-      width: max-content;
-      width: 50%;
-
-      img {
-        height: 500px;
-      }
+      position: initial;
+      height: auto;
+      width: 60%;
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "titulo_pagina": "Felipe Vogt",
   "navbar": {
-    "logo": "./imgs/logo.svg",
+    "logo": "./imgs/logo.png",
     "items": [
       {
         "id": "about-me",
@@ -134,7 +134,7 @@
     "proyectos": [
       {
         "titulo": "Buscaminas",
-        "imagen": "./imgs/buscaminas.jpg",
+        "imagen": "./imgs/buscaminas.png",
         "descripcion": "Aplicación web inspirada en el popular juego Buscaminas, cuyo objetivo es despejar el campo de minas sin detonar ninguna de ellas.",
         "tecnologias": ["Angular", "Typescript"],
         "git_link": "https://github.com/felipevogtf/Buscaminas",
