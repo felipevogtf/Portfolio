@@ -27,13 +27,14 @@
   },
   "inicio": {
     "id": "home",
+    "presentacion": "Hola, soy",
     "titulo": "Felipe Vogt",
     "subtitulo": "Desarrollador Full-Stack",
     "descripcion": "Soy un ingeniero de software especializado en construir aplicaciones altamente escalables y con un alto rendimiento."
   },
   "sobre_mi": {
     "id": "about-me",
-    "titulo": "Sobre Mi",
+    "titulo": "Algo sobre Mi",
     "imagen": "./imgs/profile.jpg",
     "perfil_link": "https://www.linkedin.com/in/felipevogtf/",
     "parrafos": [
@@ -89,7 +90,7 @@
   },
   "experiencia": {
     "id": "experience",
-    "titulo": "Experiencia",
+    "titulo": "Dónde he trabajado",
     "experiencias": [
       {
         "empresa": "BCN School",
@@ -129,7 +130,7 @@
   },
   "proyectos": {
     "id": "projects",
-    "titulo": "Proyectos",
+    "titulo": "Algunos proyectos destacados",
     "proyectos": [
       {
         "titulo": "Buscaminas",
@@ -141,7 +142,7 @@
       },
       {
         "titulo": "Trivia Pokémon",
-        "imagen": "./imgs/trivia-pokemon.jpg",
+        "imagen": "./imgs/trivia-pokemon.png",
         "descripcion": "Juego de trivia relacionado al mundo Pokémon, cuenta con un sistema de puntuación y de rankings.",
         "tecnologias": ["Vue", "Vuetify", "Javascript", "Firebase"],
         "git_link": "https://github.com/felipevogtf/Trivia-Pokemon",
