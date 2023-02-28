@@ -32,4 +32,9 @@
     --tabs-border: rgba(255, 255, 255, 0.1);
     --tabs-hover: rgba(255, 255, 255, 0.05);
     /*  */
+
+    /* Shadows */
+    --box-shadows: 5px 5px 10px rgb(0 0 0 / 15%);
+    --box-shadows-2: 5px 12px 10px rgb(0 0 0 / 30%);
+    /*  */
 }

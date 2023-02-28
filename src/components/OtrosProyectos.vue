@@ -192,7 +192,7 @@ export default {
 
     .wrap-card:hover {
       cursor: pointer;
-      box-shadow: 5px 12px 10px rgb(0 0 0 / 30%);
+      box-shadow: var(--box-shadows-2);
       transform: translateY(-10px);
     }
   }

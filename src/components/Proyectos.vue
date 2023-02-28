@@ -28,8 +28,11 @@ export default {
 
       return link;
     },
-    setVisible() {
+    setVisible(): void {
       this.visibleCounter = true;
+    },
+    getPositionClass(index: number): string {
+      return index % 2 === 0 ? "position-left" : "position-right";
     },
   },
   setup() {
@@ -56,6 +59,7 @@ export default {
 
 <template>
   <div class="proyectos" ref="target">
+    <!-- Inicio. Titulo -->
     <h2
       class="section-titulo"
       :class="fadeClass"
@@ -63,18 +67,17 @@ export default {
     >
       {{ data.titulo }}
     </h2>
+    <!-- Fin. Titulo -->
 
     <div class="contenido">
       <div
         class="proyecto"
-        :class="[
-          fadeClass,
-          index % 2 === 0 ? 'position-left' : 'position-right',
-        ]"
+        :class="[fadeClass, getPositionClass(index)]"
         style="animation-delay: 300ms"
         v-for="(item, index) in data.proyectos"
         :key="index"
       >
+        <!-- Inicio. Imagen -->
         <a
           class="img-wrapper"
           :href="getLink(item)"
@@ -83,10 +86,10 @@ export default {
         >
           <img :src="item.imagen" :alt="item.titulo" />
         </a>
-        <div
-          class="proyecto-card"
-          :class="index % 2 === 0 ? 'position-left' : 'position-right'"
-        >
+        <!-- Fin. Imagen -->
+
+        <!-- Inicio. Tarjeta -->
+        <div class="proyecto-card" :class="getPositionClass(index)">
           <div class="chips">
             <span
               class="chip-span"
@@ -122,6 +125,7 @@ export default {
             </a>
           </div>
         </div>
+        <!-- Fin. Tarjeta -->
       </div>
     </div>
   </div>
@@ -160,7 +164,7 @@ export default {
       background-position: center;
 
       background: rgba(0, 0, 0, 0.7);
-      box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.15);
+      box-shadow: var(--box-shadows);
     }
 
     .proyecto-descripcion {
@@ -184,22 +188,19 @@ export default {
   .img-wrapper {
     visibility: hidden;
     width: 0;
-
-    background: #279d7b;
+    display: flex;
     overflow: hidden;
     border-radius: 5px;
-    box-shadow: 5px 5px 10px rgb(0 0 0 / 15%);
+    box-shadow: var(--box-shadows);
 
     transition: background 400ms;
 
     img {
       object-fit: cover;
-      opacity: 0.5;
+      opacity: 0.7;
       width: 100%;
-      filter: grayscale(100%);
-
+      filter: grayscale(30%);
       transition: filter 400ms, opacity 400ms;
-      transform: scale(1.1);
     }
   }
 
@@ -229,7 +230,7 @@ export default {
         position: relative;
         padding: 20px;
         background: rgba(0, 0, 0, 0.7) !important;
-        box-shadow: 5px 5px 10px rgb(0 0 0 / 15%);
+        box-shadow: var(--box-shadows);
       }
     }
     .position-left {
