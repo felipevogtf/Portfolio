@@ -1,17 +1,17 @@
 <script lang="ts">
 import { RouterView } from "vue-router";
+import data from "./assets/data";
 
 export default {
   components: {
     RouterView,
   },
-  async created() {
-    const baseUrl = import.meta.env.VITE_URL;
-
-    const response = await fetch(`${baseUrl}data/data.json`);
-    const file = await response.json();
-
-    document.title = file.titulo_pagina;
+  created() {
+    document.title = data.titulo_pagina;
+    
+    document
+      .querySelector('meta[name="description"]')
+      ?.setAttribute("content", data.descripcion_pagina);
   },
 };
 </script>

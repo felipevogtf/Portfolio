@@ -8,6 +8,7 @@ import Contacto from "./../components/Contacto.vue";
 import Copyrigth from "../components/Copyrigth.vue";
 import RedesSociales from "./../components/RedesSociales.vue";
 import Navbar from "./../components/Navbar.vue";
+import pageData from "./../assets/data";
 
 export default {
   components: {
@@ -23,66 +24,63 @@ export default {
   },
   data() {
     return {
-      data: null as any,
+      jsonData: null as any,
     };
   },
-  async mounted() {
-    const baseUrl = import.meta.env.VITE_URL;
-    const response = await fetch(`${baseUrl}data/data.json`);
-    const file = await response.json();
-    this.data = file;
+  created() {
+    this.jsonData = pageData;
   },
 };
 </script>
 
 <template>
-  <main role="main" v-if="data">
+  <main role="main">
     <nav role="navigation">
-      <Navbar :data="data.navbar"></Navbar>
+      <Navbar :data="jsonData.navbar"></Navbar>
     </nav>
 
     <div class="glow"></div>
 
-    <section role="region" :aria-labelledby="data.inicio.id">
-      <Presentacion :id="data.inicio.id" :data="data.inicio" />
+    <section role="region" :aria-labelledby="jsonData.inicio.id">
+      <Presentacion :id="jsonData.inicio.id" :data="jsonData.inicio" />
     </section>
 
     <div class="glow glow-right"></div>
-    <section role="region" :aria-labelledby="data.sobre_mi.id">
+    <section role="region" :aria-labelledby="jsonData.sobre_mi.id">
       <SobreMi
-        :id="data.sobre_mi.id"
-        :data="data.sobre_mi"
+        :id="jsonData.sobre_mi.id"
+        :data="jsonData.sobre_mi"
         class="section-margin"
       />
     </section>
-    <section role="region" :aria-labelledby="data.experiencia.id">
+    <section role="region" :aria-labelledby="jsonData.experiencia.id">
       <Experiencia
-        :id="data.experiencia.id"
-        :data="data.experiencia"
+        :id="jsonData.experiencia.id"
+        :data="jsonData.experiencia"
         class="section-margin"
       />
     </section>
     <div class="glow"></div>
-    <section role="region" :aria-labelledby="data.proyectos.id">
+    <section role="region" :aria-labelledby="jsonData.proyectos.id">
       <Proyectos
-        :id="data.proyectos.id"
-        :data="data.proyectos"
+        :id="jsonData.proyectos.id"
+        :data="jsonData.proyectos"
         class="section-margin"
       />
     </section>
-    <section role="region" :aria-labelledby="data.otros_proyectos.id">
+    <section role="region" :aria-labelledby="jsonData.otros_proyectos.id">
       <OtrosProyectos
-        :id="data.otros_proyectos.id"
-        :data="data.otros_proyectos"
+        :id="jsonData.otros_proyectos.id"
+        :data="jsonData.otros_proyectos"
         class="section-margin"
       />
     </section>
     <div class="glow glow-right"></div>
-    <section role="region" :aria-labelledby="data.contacto.id">
+    <section role="region" :aria-labelledby="jsonData.contacto.id">
       <Contacto
         ref="test"
-        :id="data.contacto.id"
-        :data="data.contacto"
+        :id="jsonData.contacto.id"
+        :data="jsonData.contacto"
         class="section-margin"
       />
     </section>
@@ -90,17 +88,8 @@ export default {
       <Copyrigth />
     </footer>
 
-    <RedesSociales :id="data.redes.id" :data="data.redes"></RedesSociales>
+    <RedesSociales :id="jsonData.redes.id" :data="jsonData.redes"></RedesSociales>
   </main>
-
-  <div class="load-full-page" v-else>
-    <div class="lds-ellipsis">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
 </template>
 
 <style lang="scss">
