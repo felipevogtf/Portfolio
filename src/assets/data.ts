@@ -203,7 +203,7 @@ const page_data = {
     id: "contact",
     titulo: "Contacto",
     descripcion:
-      "Actualmente estoy en búsqueda de nuevas oportunidades en el área de desarrollo de software. Si estás buscando un profesional experimentado con habilidades en programación, no dudes en contactarme.",
+      "Actualmente estoy enfocado en mi desarrollo profesional en el área de desarrollo de software. Si deseas mantener contacto o colaborar en proyectos futuros, no dudes en contactarme.",
     boton_contacto: "Contactame",
     email: "felipevogt.f@gmail.com",
   },
